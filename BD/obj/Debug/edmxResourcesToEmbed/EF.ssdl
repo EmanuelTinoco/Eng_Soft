@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="estp2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agendamento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="objetivo" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Declaracao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="ficheiro" Type="bit" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Freguesia">
+    <Key>
+      <PropertyRef Name="cod_postal" />
+    </Key>
+    <Property Name="cod_postal" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="morada" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notifcacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cod_postal" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido_Declaracao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="descricacao" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido_Esclarecimento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_utilizador" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reportar_Problema">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="status" Type="smallint" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="localizacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="fotos" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sugestao">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilizador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cod_postal" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="cc" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="n_eleitor" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="contacto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilizador_Perfil">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="perfil_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="perfil_id" Type="int" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="ativo" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FKAgendament310431">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Agendamento" Type="Self.Agendamento" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Agendamento">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAgendament310432">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Agendamento" Type="Self.Agendamento" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Agendamento">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKDeclaracao925461">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Declaracao" Type="Self.Declaracao" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Declaracao">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKNotifcacao144001">
+    <End Role="Freguesia" Type="Self.Freguesia" Multiplicity="1" />
+    <End Role="Notifcacao" Type="Self.Notifcacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Freguesia">
+        <PropertyRef Name="cod_postal" />
+      </Principal>
+      <Dependent Role="Notifcacao">
+        <PropertyRef Name="cod_postal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPedido_Dec546410">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Pedido_Declaracao" Type="Self.Pedido_Declaracao" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pedido_Declaracao">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPedido_Esc357591">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Pedido_Esclarecimento" Type="Self.Pedido_Esclarecimento" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pedido_Esclarecimento">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPedido_Esc357592">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Pedido_Esclarecimento" Type="Self.Pedido_Esclarecimento" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pedido_Esclarecimento">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKReportar_P702546">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Reportar_Problema" Type="Self.Reportar_Problema" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Reportar_Problema">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKReportar_P702547">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Reportar_Problema" Type="Self.Reportar_Problema" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Reportar_Problema">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKSugestao143407">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Sugestao" Type="Self.Sugestao" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sugestao">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKUtilizador192925">
+    <End Role="Freguesia" Type="Self.Freguesia" Multiplicity="1" />
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Freguesia">
+        <PropertyRef Name="cod_postal" />
+      </Principal>
+      <Dependent Role="Utilizador">
+        <PropertyRef Name="cod_postal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKUtilizador394182">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+    <End Role="Utilizador_Perfil" Type="Self.Utilizador_Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Utilizador_Perfil">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKUtilizador662631">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+    <End Role="Utilizador_Perfil" Type="Self.Utilizador_Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Utilizador_Perfil">
+        <PropertyRef Name="perfil_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="estp2ModelStoreContainer">
+    <EntitySet Name="Agendamento" EntityType="Self.Agendamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Declaracao" EntityType="Self.Declaracao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Freguesia" EntityType="Self.Freguesia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifcacao" EntityType="Self.Notifcacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pedido_Declaracao" EntityType="Self.Pedido_Declaracao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pedido_Esclarecimento" EntityType="Self.Pedido_Esclarecimento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reportar_Problema" EntityType="Self.Reportar_Problema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sugestao" EntityType="Self.Sugestao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilizador_Perfil" EntityType="Self.Utilizador_Perfil" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FKAgendament310431" Association="Self.FKAgendament310431">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Agendamento" EntitySet="Agendamento" />
+    </AssociationSet>
+    <AssociationSet Name="FKAgendament310432" Association="Self.FKAgendament310432">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Agendamento" EntitySet="Agendamento" />
+    </AssociationSet>
+    <AssociationSet Name="FKDeclaracao925461" Association="Self.FKDeclaracao925461">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Declaracao" EntitySet="Declaracao" />
+    </AssociationSet>
+    <AssociationSet Name="FKNotifcacao144001" Association="Self.FKNotifcacao144001">
+      <End Role="Freguesia" EntitySet="Freguesia" />
+      <End Role="Notifcacao" EntitySet="Notifcacao" />
+    </AssociationSet>
+    <AssociationSet Name="FKPedido_Dec546410" Association="Self.FKPedido_Dec546410">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Pedido_Declaracao" EntitySet="Pedido_Declaracao" />
+    </AssociationSet>
+    <AssociationSet Name="FKPedido_Esc357591" Association="Self.FKPedido_Esc357591">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Pedido_Esclarecimento" EntitySet="Pedido_Esclarecimento" />
+    </AssociationSet>
+    <AssociationSet Name="FKPedido_Esc357592" Association="Self.FKPedido_Esc357592">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Pedido_Esclarecimento" EntitySet="Pedido_Esclarecimento" />
+    </AssociationSet>
+    <AssociationSet Name="FKReportar_P702546" Association="Self.FKReportar_P702546">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Reportar_Problema" EntitySet="Reportar_Problema" />
+    </AssociationSet>
+    <AssociationSet Name="FKReportar_P702547" Association="Self.FKReportar_P702547">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Reportar_Problema" EntitySet="Reportar_Problema" />
+    </AssociationSet>
+    <AssociationSet Name="FKSugestao143407" Association="Self.FKSugestao143407">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Sugestao" EntitySet="Sugestao" />
+    </AssociationSet>
+    <AssociationSet Name="FKUtilizador192925" Association="Self.FKUtilizador192925">
+      <End Role="Freguesia" EntitySet="Freguesia" />
+      <End Role="Utilizador" EntitySet="Utilizador" />
+    </AssociationSet>
+    <AssociationSet Name="FKUtilizador394182" Association="Self.FKUtilizador394182">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Utilizador_Perfil" EntitySet="Utilizador_Perfil" />
+    </AssociationSet>
+    <AssociationSet Name="FKUtilizador662631" Association="Self.FKUtilizador662631">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Utilizador_Perfil" EntitySet="Utilizador_Perfil" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

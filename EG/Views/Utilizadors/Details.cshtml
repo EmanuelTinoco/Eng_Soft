@@ -1,0 +1,154 @@
+﻿@model BD.Utilizador
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Utilizador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.n_eleitor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n_eleitor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Agendamento.objetivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agendamento.objetivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Agendamento1.objetivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agendamento1.objetivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Declaracao.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Declaracao.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Freguesia.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Freguesia.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedido_Declaracao.descricacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedido_Declaracao.descricacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedido_Esclarecimento.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedido_Esclarecimento.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedido_Esclarecimento1.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedido_Esclarecimento1.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reportar_Problema.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reportar_Problema.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reportar_Problema1.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reportar_Problema1.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sugestao.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sugestao.descricao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

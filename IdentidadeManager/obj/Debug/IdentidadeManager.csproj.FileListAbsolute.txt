@@ -1,0 +1,5 @@
+C:\Users\Emanuel Tinoco\source\repos\EG\IdentidadeManager\bin\Debug\IdentidadeManager.dll
+C:\Users\Emanuel Tinoco\source\repos\EG\IdentidadeManager\bin\Debug\IdentidadeManager.pdb
+C:\Users\Emanuel Tinoco\source\repos\EG\IdentidadeManager\obj\Debug\IdentidadeManager.csproj.CoreCompileInputs.cache
+C:\Users\Emanuel Tinoco\source\repos\EG\IdentidadeManager\obj\Debug\IdentidadeManager.dll
+C:\Users\Emanuel Tinoco\source\repos\EG\IdentidadeManager\obj\Debug\IdentidadeManager.pdb

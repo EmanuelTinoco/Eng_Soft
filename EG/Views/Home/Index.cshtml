@@ -1,0 +1,26 @@
+﻿@model IEnumerable<BD.Utilizador>
+
+@{
+    ViewBag.Title = "ADO.NET Integration - Home";
+}
+<div class="jumbotron">
+    <h1>Welcome</h1>
+    <p class="lead">Login from "@User.Identity.Name" Account.</p>
+    este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
+    este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()
+    @*@foreach (var item in Model)
+    {
+        if (item.id == int.Parse(@IdentidadeManager.IdentidadeUser.GetId()))
+        {
+            @Html.ActionLink("Edit", "Edit", "Utilizadors", new { id = item.id })
+        }
+    }*@
+
+
+
+
+
+
+
+    <li>@Html.ActionLink("Editar Dados", "Edit", "Utilizadors", new{ id = int.Parse(IdentidadeManager.IdentidadeUser.GetId())}, null )</li>
+</div>  

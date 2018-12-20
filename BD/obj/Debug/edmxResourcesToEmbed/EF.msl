@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="estp2ModelStoreContainer" CdmEntityContainer="estp2Entities">
+    <EntitySetMapping Name="Agendamento">
+      <EntityTypeMapping TypeName="estp2Model.Agendamento">
+        <MappingFragment StoreEntitySet="Agendamento">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="objetivo" ColumnName="objetivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Declaracao">
+      <EntityTypeMapping TypeName="estp2Model.Declaracao">
+        <MappingFragment StoreEntitySet="Declaracao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ficheiro" ColumnName="ficheiro" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Freguesia">
+      <EntityTypeMapping TypeName="estp2Model.Freguesia">
+        <MappingFragment StoreEntitySet="Freguesia">
+          <ScalarProperty Name="cod_postal" ColumnName="cod_postal" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="morada" ColumnName="morada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifcacao">
+      <EntityTypeMapping TypeName="estp2Model.Notifcacao">
+        <MappingFragment StoreEntitySet="Notifcacao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cod_postal" ColumnName="cod_postal" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido_Declaracao">
+      <EntityTypeMapping TypeName="estp2Model.Pedido_Declaracao">
+        <MappingFragment StoreEntitySet="Pedido_Declaracao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descricacao" ColumnName="descricacao" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido_Esclarecimento">
+      <EntityTypeMapping TypeName="estp2Model.Pedido_Esclarecimento">
+        <MappingFragment StoreEntitySet="Pedido_Esclarecimento">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfil">
+      <EntityTypeMapping TypeName="estp2Model.Perfil">
+        <MappingFragment StoreEntitySet="Perfil">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="tipo_utilizador" ColumnName="tipo_utilizador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reportar_Problema">
+      <EntityTypeMapping TypeName="estp2Model.Reportar_Problema">
+        <MappingFragment StoreEntitySet="Reportar_Problema">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="localizacao" ColumnName="localizacao" />
+          <ScalarProperty Name="fotos" ColumnName="fotos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sugestao">
+      <EntityTypeMapping TypeName="estp2Model.Sugestao">
+        <MappingFragment StoreEntitySet="Sugestao">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilizador">
+      <EntityTypeMapping TypeName="estp2Model.Utilizador">
+        <MappingFragment StoreEntitySet="Utilizador">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cod_postal" ColumnName="cod_postal" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="n_eleitor" ColumnName="n_eleitor" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilizador_Perfil">
+      <EntityTypeMapping TypeName="estp2Model.Utilizador_Perfil">
+        <MappingFragment StoreEntitySet="Utilizador_Perfil">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="perfil_id" ColumnName="perfil_id" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

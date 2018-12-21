@@ -197,10 +197,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Class1.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PerfilsController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
+    <Compile Include="Controllers\Utilizador_PerfilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,6 +275,16 @@
     <Content Include="Views\Utilizadors\Details.cshtml" />
     <Content Include="Views\Utilizadors\Edit.cshtml" />
     <Content Include="Views\Utilizadors\Index.cshtml" />
+    <Content Include="Views\Utilizador_Perfil\Create.cshtml" />
+    <Content Include="Views\Utilizador_Perfil\Delete.cshtml" />
+    <Content Include="Views\Utilizador_Perfil\Details.cshtml" />
+    <Content Include="Views\Utilizador_Perfil\Edit.cshtml" />
+    <Content Include="Views\Utilizador_Perfil\Index.cshtml" />
+    <Content Include="Views\Perfils\Create.cshtml" />
+    <Content Include="Views\Perfils\Delete.cshtml" />
+    <Content Include="Views\Perfils\Details.cshtml" />
+    <Content Include="Views\Perfils\Edit.cshtml" />
+    <Content Include="Views\Perfils\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

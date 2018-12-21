@@ -59,10 +59,18 @@ namespace EG.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,cod_postal,nome,cc,n_eleitor,email,username,password,contacto")] Utilizador utilizador)
         {
+            int perfil_id = 3;
             if (ModelState.IsValid)
             {
                 db.Utilizador.Add(utilizador);
+
+                if (utilizador.cod_postal.Equals("Amares"))
+                {
+                    perfil_id = 2;
+                }
+                
                 db.SaveChanges();
+                Utilizador_PerfilController.adiciona(utilizador.id, perfil_id);
                 return RedirectToAction("Index");
             }
 

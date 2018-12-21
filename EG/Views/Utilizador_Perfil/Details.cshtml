@@ -1,0 +1,50 @@
+﻿@model BD.Utilizador_Perfil
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Utilizador_Perfil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Perfil.tipo_utilizador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Perfil.tipo_utilizador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilizador.cod_postal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilizador.cod_postal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

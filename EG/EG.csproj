@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PerfilsController.cs" />
+    <Compile Include="Controllers\SugestaosController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
     <Compile Include="Controllers\Utilizador_PerfilController.cs" />
     <Compile Include="Global.asax.cs">
@@ -285,6 +286,11 @@
     <Content Include="Views\Perfils\Details.cshtml" />
     <Content Include="Views\Perfils\Edit.cshtml" />
     <Content Include="Views\Perfils\Index.cshtml" />
+    <Content Include="Views\Sugestaos\Create.cshtml" />
+    <Content Include="Views\Sugestaos\Delete.cshtml" />
+    <Content Include="Views\Sugestaos\Details.cshtml" />
+    <Content Include="Views\Sugestaos\Edit.cshtml" />
+    <Content Include="Views\Sugestaos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,10 +9,14 @@
     este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
     este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()
     <li>
-    @Html.ActionLink("Editar Dados", "Edit", "Utilizadors", new{ id = int.Parse(IdentidadeManager.IdentidadeUser.GetId())}, null )
+        @Html.ActionLink("Editar Dados", "Edit", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
     </li>
 
     <li>
         @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null);
+    </li>
+
+    <li>
+        @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null);
     </li>
 </div>  

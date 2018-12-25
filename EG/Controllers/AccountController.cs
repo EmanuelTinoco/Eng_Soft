@@ -87,8 +87,8 @@ namespace EG.Controllers
                        
                         // Login In.    
                         this.SignInUser(u.username, false);
-                        // Info.    
-                         IdentidadeUser.AddIdentidadeUser(v.username,(v.id.ToString()));
+                        // Info.
+                        IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString());
                         return this.RedirectToLocal(returnUrl);
                     }
                     else

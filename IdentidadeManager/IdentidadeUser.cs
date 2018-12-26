@@ -10,9 +10,9 @@ namespace IdentidadeManager
     {
         static List<Identidade> ListaUser=new List<Identidade>();
 
-        public static bool AddIdentidadeUser(string nome, string id)
+        public static bool AddIdentidadeUser(string nome, string id, bool [] perm)
         {
-            Identidade user = new Identidade(nome, id);
+            Identidade user = new Identidade(nome, id, perm);
             user.Nome = nome;
             user.Id = id;
 
@@ -30,5 +30,19 @@ namespace IdentidadeManager
             return ListaUser[0].Id;
         }
 
+        public static bool isAdmin()
+        {
+            return ListaUser[0].Admin;
+        }
+
+        public static bool isResidente()
+        {
+            return ListaUser[0].Residente;
+        }
+
+        public static bool isMembro()
+        {
+            return ListaUser[0].Membro;
+        }
     }
 }

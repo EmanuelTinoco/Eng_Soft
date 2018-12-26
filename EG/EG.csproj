@@ -198,10 +198,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AgendamentosController.cs" />
+    <Compile Include="Controllers\DeclaracaosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Pedido_DeclaracaoController.cs" />
     <Compile Include="Controllers\PerfilsController.cs" />
+    <Compile Include="Controllers\Reportar_ProblemaController.cs" />
     <Compile Include="Controllers\SugestaosController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
     <Compile Include="Controllers\Utilizador_PerfilController.cs" />
@@ -346,6 +348,16 @@
     <Content Include="Views\Pedido_Declaracao\Details.cshtml" />
     <Content Include="Views\Pedido_Declaracao\Edit.cshtml" />
     <Content Include="Views\Pedido_Declaracao\Index.cshtml" />
+    <Content Include="Views\Declaracaos\Create.cshtml" />
+    <Content Include="Views\Declaracaos\Delete.cshtml" />
+    <Content Include="Views\Declaracaos\Details.cshtml" />
+    <Content Include="Views\Declaracaos\Edit.cshtml" />
+    <Content Include="Views\Declaracaos\Index.cshtml" />
+    <Content Include="Views\Reportar_Problema\Create.cshtml" />
+    <Content Include="Views\Reportar_Problema\Delete.cshtml" />
+    <Content Include="Views\Reportar_Problema\Details.cshtml" />
+    <Content Include="Views\Reportar_Problema\Edit.cshtml" />
+    <Content Include="Views\Reportar_Problema\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

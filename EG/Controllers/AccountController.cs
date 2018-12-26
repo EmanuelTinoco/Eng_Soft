@@ -88,7 +88,8 @@ namespace EG.Controllers
                         // Login In.    
                         this.SignInUser(u.username, false);
                         // Info.
-                        IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString());
+                        IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString(), Get_Permissions(v.id));
+                        Get_Permissions(v.id);
                         return this.RedirectToLocal(returnUrl);
                     }
                     else
@@ -106,6 +107,37 @@ namespace EG.Controllers
             // If we got this far, something failed, redisplay form    
             return this.View(u);
         }
+
+        
+        private bool[] Get_Permissions(int id)
+        {
+            bool[] perm = { false, false, false };
+            var permissions = (from user in db.Utilizador
+                               join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                               where user.id == id && user_p.ativo == 1
+                               select new {
+                                   PERM = user_p.perfil_id
+                               }).Take(4);
+            foreach (var p in permissions)
+            {
+                if(p.PERM == 1)
+                {
+                    perm[0] = true;
+                }
+                if(p.PERM == 2)
+                {
+                    perm[1] = true;
+                }
+                if(p.PERM == 4)
+                {
+                    perm[2] = true;
+                }
+            }
+
+            return perm;
+           
+        }
+        
 
 
         #endregion
@@ -213,3 +245,4 @@ namespace EG.Controllers
         #endregion
     }
 }  
+   

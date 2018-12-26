@@ -11,11 +11,17 @@ namespace IdentidadeManager
     {
         private string nome;
         private string id;
+        private bool admin;
+        private bool residente;
+        private bool membro;
 
-        public Identidade(string nome, string id)
+        public Identidade(string nome, string id, bool[]perm)
         {
             this.nome = nome;
             this.id = id;
+            admin = perm[0];
+            residente = perm[1];
+            membro = perm[2];
         }
 
         public string Nome
@@ -27,6 +33,24 @@ namespace IdentidadeManager
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public bool Admin
+        {
+            get { return admin; }
+            set { admin = value; }
+        }
+
+        public bool Residente
+        {
+            get { return residente; }
+            set { residente = value; }
+        }
+
+        public bool Membro
+        {
+            get { return membro; }
+            set { membro = value; }
         }
     }
 

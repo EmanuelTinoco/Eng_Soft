@@ -13,10 +13,16 @@
     </li>
 
     <li>
-        @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null);
+        @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
     </li>
 
     <li>
-        @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null);
+        @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
     </li>
+
+    <li>
+        @Html.ActionLink("Pedido Declaração", "Create", "Pedido_Declaracao", new {  id = int.Parse(IdentidadeManager.IdentidadeUser.GetId())}, null)
+    </li
+
+
 </div>  

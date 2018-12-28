@@ -144,5 +144,39 @@ namespace EG.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public Utilizador_Perfil PermissionExists(int user_id, int perfil_id)
+        {
+            Utilizador_Perfil user = (from x in db.Utilizador_Perfil
+                               where x.user_id == user_id && x.perfil_id == perfil_id
+                               select x).First();
+            return user;
+            
+            
+        }
+
+        
+        public bool changePermission(int u_id, int p_id, bool status)
+        {
+            Utilizador_Perfil user = PermissionExists(u_id, p_id);
+            int s = status ? 1 : 0;
+            //Se existir faço update do status
+            if (user != null)
+            {
+                user = (from x in db.Utilizador_Perfil
+                                          where x.user_id == u_id && x.perfil_id == p_id
+                                          select x).First();
+                user.ativo = s;
+                db.SaveChanges();
+            }
+            //se não existir é adicionada uma nova entrada a tabela
+            else
+            {
+                var users = db.Set<Utilizador_Perfil>();
+                users.Add(new Utilizador_Perfil { perfil_id = p_id, user_id = u_id, ativo = s, data = DateTime.Now });
+                db.SaveChanges();
+            }
+            return true;
+        }
     }
 }

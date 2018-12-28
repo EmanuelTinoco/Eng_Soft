@@ -358,6 +358,7 @@
     <Content Include="Views\Reportar_Problema\Details.cshtml" />
     <Content Include="Views\Reportar_Problema\Edit.cshtml" />
     <Content Include="Views\Reportar_Problema\Index.cshtml" />
+    <Content Include="Views\Utilizadors\EditUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -138,6 +138,8 @@ namespace EG.Controllers
             return View(utilizador);
         }
 
+       
+
         // GET: Utilizadors/Delete/5
         public ActionResult Delete(int? id)
         {

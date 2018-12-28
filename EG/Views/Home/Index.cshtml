@@ -8,9 +8,20 @@
     <p class="lead">Login from "@User.Identity.Name" Account.</p>
     este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
     este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()
+    @if (IdentidadeManager.IdentidadeUser.isAdmin())
+    {
+        <h2>Funcionalidade De Admin</h2>
+        <li>
+            @Html.ActionLink("Editar Dados", "Edit", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
+        </li>
+    }
+
     <li>
         @Html.ActionLink("Editar Dados", "Edit", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
     </li>
+
+    
+
 
     <li>
         @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
@@ -21,10 +32,10 @@
     </li>
 
     <li>
-        @Html.ActionLink("Pedido Declaração", "Create", "Pedido_Declaracao", new {  id = int.Parse(IdentidadeManager.IdentidadeUser.GetId())}, null)
+        @Html.ActionLink("Pedido Declaração", "Create", "Pedido_Declaracao", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
     </li>
 
     <li>
-        @Html.ActionLink("Declarações", "Create", "Declaracaos", new {  id = int.Parse(IdentidadeManager.IdentidadeUser.GetId())}, null)
+        @Html.ActionLink("Declarações", "Create", "Declaracaos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
     </li>
 </div>  

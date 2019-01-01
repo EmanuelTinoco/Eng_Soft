@@ -17,6 +17,10 @@ namespace EG
             // Enable the application to use a cookie to store information for the signed in user   
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider   
             // Configure the sign in cookie   
+            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
@@ -35,11 +39,12 @@ namespace EG
             //app.UseFacebookAuthentication(   
             // appId: "",   
             // appSecret: "");   
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()   
-            //{   
-            // ClientId = "",   
-            // ClientSecret = ""   
-            //});   
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "153357369749-j9s69fl4aft5jklgj3803c4fvv9scjie.apps.googleusercontent.com",
+                ClientSecret = "3QHvJoKcoSCYtfS6rEmclSAr",
+            });
         }
     }
 }

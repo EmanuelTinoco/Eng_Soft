@@ -14,6 +14,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNet.Identity.EntityFramework;
 using IdentidadeManager;
+using System.Net;
+using System.Net.Mail;
 
 namespace EG.Controllers
 {
@@ -24,6 +26,10 @@ namespace EG.Controllers
         /// <summary>  
         /// Database Store property.    
         /// </summary>  
+        /// 
+
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
 
         estp2Entities db = new estp2Entities();
         #endregion
@@ -33,6 +39,36 @@ namespace EG.Controllers
         /// </summary>  
         public AccountController()
         {
+        }
+
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
+
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
         }
         #endregion
         #region Login methods    
@@ -137,8 +173,252 @@ namespace EG.Controllers
             return perm;
            
         }
-        
 
+
+        /// <summary>  
+        /// GET: /Account/Login    
+        /// </summary>  
+        /// <param name="returnUrl">Return URL parameter</param>  
+        /// <returns>Return login view</returns>  
+        [AllowAnonymous]
+        public ActionResult RecuperarPassWord(string returnUrl)
+        {
+            try
+            {
+                // Verification.    
+                if (this.Request.IsAuthenticated)
+                {
+                    // Info.    
+                    return this.RedirectToLocal(returnUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                Console.Write(ex);
+            }
+            // Info.    
+            return this.View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult RecuperarPassWord(string email, string returnUrl)
+        {
+            try
+            {
+                // Verification.    
+                if (ModelState.IsValid)
+                {
+
+                    var v = db.Utilizador.Where(a => a.email.Equals(email)).FirstOrDefault();
+                    if (v != null)
+                    {
+                        SmtpClient cliente = new SmtpClient("smtp.gmail.com", 587);
+                        cliente.EnableSsl = true;
+                        cliente.UseDefaultCredentials = false;
+                        cliente.Timeout = 50000;
+                        cliente.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        cliente.Credentials = new NetworkCredential("CM.Barcelos.ES@gmail.com", "engenhariasoftwareRED");
+
+                        MailMessage msg = new MailMessage();
+                        msg.To.Add(v.email);
+                        msg.From = new MailAddress("CM.Barcelos.ES@gmail.com");
+                        msg.Subject = "Recuperaçao de email";
+                        msg.Body = ("A sua password de acesso a platafomra da CM Barcelos é: " + v.password);
+                        cliente.Send(msg);
+
+                        return this.View("RecuperarPassWordConfirmacao");
+                    }
+                    else
+                    {
+                        // Setting.    
+                        ModelState.AddModelError(string.Empty, "Email invalido.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                Console.Write(ex);
+            }
+            return this.View();
+        }
+
+
+
+
+        //
+        // GET: /Account/VerifyCode
+        [AllowAnonymous]
+        public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
+        {
+            // Exija que o usuário efetue login via nome de usuário/senha ou login externo
+            if (!await SignInManager.HasBeenVerifiedAsync())
+            {
+                return View("Error");
+            }
+            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
+        }
+
+        //
+        // POST: /Account/VerifyCode
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // O código a seguir protege de ataques de força bruta em relação aos códigos de dois fatores. 
+            // Se um usuário inserir códigos incorretos para uma quantidade especificada de tempo, então a conta de usuário 
+            // será bloqueado por um período especificado de tempo. 
+            // Você pode configurar os ajustes de bloqueio da conta em IdentityConfig
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return RedirectToLocal(model.ReturnUrl);
+                case SignInStatus.LockedOut:
+                    return View("Lockout");
+                case SignInStatus.Failure:
+                default:
+                    ModelState.AddModelError("", "Código inválido.");
+                    return View(model);
+            }
+        }
+
+        //
+        // POST: /Account/ExternalLogin
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExternalLogin(string provider, string returnUrl)
+        {
+            // Solicitar um redirecionamento para o provedor de logon externo
+            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
+        }
+
+        //
+        // GET: /Account/SendCode
+        [AllowAnonymous]
+        public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
+        {
+            var userId = await SignInManager.GetVerifiedUserIdAsync();
+            if (userId == null)
+            {
+                return View("Error");
+            }
+            var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
+            var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
+            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+        }
+
+        //
+        // POST: /Account/SendCode
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> SendCode(SendCodeViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            // Gerar o token e enviá-lo
+            if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
+            {
+                return View("Error");
+            }
+            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
+        }
+
+
+        //[AllowAnonymous]
+        //public ActionResult ExternalLoginCallback(string returnUrl)
+        //{
+        //    return RedirectPermanent("/Account/ExternalLoginCallback");
+        //}
+
+        //
+        // GET: /Account/ExternalLoginCallback
+        [AllowAnonymous]
+        public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
+        {
+            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+            if (loginInfo == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            // Faça logon do usuário com este provedor de logon externo se o usuário já tiver um logon
+            var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return RedirectToLocal(returnUrl);
+                case SignInStatus.LockedOut:
+                    return View("Lockout");
+                case SignInStatus.RequiresVerification:
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
+                case SignInStatus.Failure:
+                default:
+                    // Se o usuário não tiver uma conta, solicite que o usuário crie uma conta
+                    ViewBag.ReturnUrl = returnUrl;
+                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+            }
+        }
+
+        //
+        // POST: /Account/ExternalLoginConfirmation
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Manage");
+            }
+
+            if (ModelState.IsValid)
+            {
+                // Obter as informações sobre o usuário do provedor de logon externo
+                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                if (info == null)
+                {
+                    return View("ExternalLoginFailure");
+                }
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user);
+                if (result.Succeeded)
+                {
+                    result = await UserManager.AddLoginAsync(user.Id, info.Login);
+                    if (result.Succeeded)
+                    {
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        return RedirectToLocal(returnUrl);
+                    }
+                }
+                AddErrors(result);
+            }
+
+            ViewBag.ReturnUrl = returnUrl;
+            return View(model);
+        }
+
+        // GET: /Account/ExternalLoginFailure
+        [AllowAnonymous]
+        public ActionResult ExternalLoginFailure()
+        {
+            return View();
+        }
 
         #endregion
         #region Log Out method.    
@@ -223,22 +503,51 @@ namespace EG.Controllers
             return this.RedirectToAction("Index", "Home");
         }
 
-        internal class ChallengeResult : ActionResult
-        {
-            private string provider;
-            private string v1;
-            private string v2;
 
-            public ChallengeResult(string provider, string v1, string v2)
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
             {
-                this.provider = provider;
-                this.v1 = v1;
-                this.v2 = v2;
+                ModelState.AddModelError("", error);
             }
+        }
+
+        private const string XsrfKey = "XsrfId";
+
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
+
+        internal class ChallengeResult : HttpUnauthorizedResult
+        {
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
+            {
+            }
+
+            public ChallengeResult(string provider, string redirectUri, string userId)
+            {
+                LoginProvider = provider;
+                RedirectUri = redirectUri;
+                UserId = userId;
+            }
+
+            public string LoginProvider { get; set; }
+            public string RedirectUri { get; set; }
+            public string UserId { get; set; }
 
             public override void ExecuteResult(ControllerContext context)
             {
-                throw new NotImplementedException();
+                var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
+                if (UserId != null)
+                {
+                    properties.Dictionary[XsrfKey] = UserId;
+                }
+                context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
         #endregion

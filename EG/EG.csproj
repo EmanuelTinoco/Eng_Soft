@@ -359,6 +359,8 @@
     <Content Include="Views\Reportar_Problema\Edit.cshtml" />
     <Content Include="Views\Reportar_Problema\Index.cshtml" />
     <Content Include="Views\Utilizadors\EditUsers.cshtml" />
+    <Content Include="Views\Account\RecuperarPassWord.cshtml" />
+    <Content Include="Views\Account\RecuperarPassWordConfirmacao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

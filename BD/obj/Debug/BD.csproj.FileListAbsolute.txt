@@ -21,3 +21,4 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.csproj.CoreCompileInputs.cac
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.csproj.CopyComplete
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.pdb
+C:\Users\Emanuel Tinoco\source\repos\EG\BD\obj\Debug\BD.csprojAssemblyReference.cache

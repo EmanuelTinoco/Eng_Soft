@@ -39,6 +39,9 @@ namespace BD
         [Display(Name = "Contacto:")]
         public int contacto { get; set; }
 
+        public string ReturnUrl { get; set; }
+
+
         public virtual Agendamento Agendamento { get; set; }
         public virtual Agendamento Agendamento1 { get; set; }
         public virtual Declaracao Declaracao { get; set; }
@@ -52,4 +55,5 @@ namespace BD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Utilizador_Perfil> Utilizador_Perfil { get; set; }
     }
+
 }

@@ -1,0 +1,12 @@
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\bin\Debug\AtividadeDataAcess.dll.config
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\bin\Debug\AtividadeDataAcess.dll
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\bin\Debug\AtividadeDataAcess.pdb
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\bin\Debug\EntityFramework.dll
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\bin\Debug\EntityFramework.xml
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\obj\Debug\AtividadeDataAcess.csprojAssemblyReference.cache
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\obj\Debug\AtividadeDataAcess.csproj.CoreCompileInputs.cache
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\obj\Debug\AtividadeDataAcess.csproj.CopyComplete
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\obj\Debug\AtividadeDataAcess.dll
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeDataAcess\obj\Debug\AtividadeDataAcess.pdb

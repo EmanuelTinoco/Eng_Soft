@@ -26,26 +26,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ativo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Perfil.tipo_utilizador)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utilizador.cod_postal)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.user_id }); |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Perfil.tipo_utilizador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilizador.cod_postal)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", "Utilizador_Perfil", new { id = item.user_id }, null);
+                
+            </td>
+        </tr>
+    }
+    @Html.ActionLink("Editar Permissões dos Utilizadoes", "Index", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
 
 </table>

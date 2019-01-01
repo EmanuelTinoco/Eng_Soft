@@ -78,24 +78,21 @@ namespace EG.Controllers
         // GET: Utilizador_Perfil/Edit/5
         public ActionResult Edit(int? id)
         {
-            bool b_admin = true, b_residente = true, b_membro = true;
-            id = 20;
-            int user_id = 11;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilizador user = db.Utilizador.Find(user_id);
+            Utilizador user = db.Utilizador.Find(id);
             if (user == null)
             {
                 HttpNotFound();
                 return null;
             }
-            Utilizador_Perfil user_perfil = db.Utilizador_Perfil.Find(user_id, 3);//este utilizador tem sempre que existir, porque é nao residente
+            Utilizador_Perfil user_perfil = db.Utilizador_Perfil.Find(id, 3);//este utilizador tem sempre que existir, porque é nao residente
 
-            Utilizador_Perfil a = db.Utilizador_Perfil.Find(user_id, 1);
-            Utilizador_Perfil r = db.Utilizador_Perfil.Find(user_id, 2);
-            Utilizador_Perfil m = db.Utilizador_Perfil.Find(user_id, 4);
+            Utilizador_Perfil a = db.Utilizador_Perfil.Find(id, 1);
+            Utilizador_Perfil r = db.Utilizador_Perfil.Find(id, 2);
+            Utilizador_Perfil m = db.Utilizador_Perfil.Find(id, 4);
             user_perfil.admin = a == null ? false : true;
             user_perfil.residente = r == null ? false : true;
             user_perfil.membro = m == null ? false : true;
@@ -116,18 +113,20 @@ namespace EG.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "user_id, admin")] Utilizador_Perfil utilizador_Perfil)
+        public ActionResult Edit([Bind(Include = "user_id, admin, residente, membro")] Utilizador_Perfil user_perfil)
         {
-
-            if (ModelState.IsValid)
-            {
-                //db.Entry(utilizador_Perfil).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.perfil_id = new SelectList(db.Perfil, "id_user", "tipo_utilizador", utilizador_Perfil.perfil_id);
-            ViewBag.user_id = new SelectList(db.Utilizador, "id", "cod_postal", utilizador_Perfil.user_id);
-            return View(utilizador_Perfil);
+            //user_perfil.user_id = int.Parse(IdentidadeManager.IdentidadeUser.GetId());
+            user_perfil.user_id = 11;
+            changePermission(user_perfil.user_id, 1, user_perfil.admin);
+            changePermission(user_perfil.user_id, 2, user_perfil.residente);
+            changePermission(user_perfil.user_id, 4, user_perfil.membro);
+            
+            ViewBag.perfil_id = new SelectList(db.Utilizador_Perfil, "id_user", "ID tipo Utilizador", user_perfil.perfil_id);
+            ViewBag.user_id = new SelectList(db.Utilizador_Perfil, "id", "ID", user_perfil.user_id);
+            ViewBag.admin = new SelectList(db.Utilizador_Perfil, "admin", "Admin", user_perfil.admin);
+            ViewBag.residente = new SelectList(db.Utilizador_Perfil, "residente", "Residente", user_perfil.admin);
+            ViewBag.membro = new SelectList(db.Utilizador_Perfil, "membro", "Membro da Junta", user_perfil.admin);
+            return View("Edit");
         }
 
         // GET: Utilizador_Perfil/Delete/5
@@ -167,10 +166,16 @@ namespace EG.Controllers
 
         public Utilizador_Perfil PermissionExists(int user_id, int perfil_id)
         {
-            Utilizador_Perfil user = (from x in db.Utilizador_Perfil
-                               where x.user_id == user_id && x.perfil_id == perfil_id
-                               select x).First();
+            Utilizador_Perfil user;
+            using (var context = new estp2Entities())
+            {
+                user = (from x in context.Utilizador_Perfil
+                        where x.user_id == user_id && x.perfil_id == perfil_id
+                        select x).FirstOrDefault();
+                
+            }
             return user;
+            
             
             
         }
@@ -192,9 +197,14 @@ namespace EG.Controllers
             //se não existir é adicionada uma nova entrada a tabela
             else
             {
-                var users = db.Set<Utilizador_Perfil>();
-                users.Add(new Utilizador_Perfil { perfil_id = p_id, user_id = u_id, ativo = s, data = DateTime.Now });
-                db.SaveChanges();
+                using (var context = new estp2Entities())
+                {
+                    context.Utilizador_Perfil.Add(new Utilizador_Perfil { user_id = u_id, perfil_id = p_id,  ativo = s, data = DateTime.Now });
+                    //var users = db.Set<Utilizador_Perfil>();
+                    //users.Add(new Utilizador_Perfil { perfil_id = p_id, user_id = u_id, ativo = s, data = DateTime.Now });
+                    context.SaveChanges();
+                    //db.SaveChanges();
+                }
             }
             return true;
         }

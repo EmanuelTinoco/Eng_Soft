@@ -12,9 +12,11 @@
     {
         <h2>Funcionalidade De Admin</h2>
         <li>
-            @Html.ActionLink("Editar Dados", "Edit", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
+            @Html.ActionLink("Editar Permissões dos Utilizadoes", "Index", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
         </li>
     }
+
+    <h2>Funcionalidades</h2>
 
     <li>
         @Html.ActionLink("Editar Dados", "Edit", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)

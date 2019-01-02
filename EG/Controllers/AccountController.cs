@@ -16,6 +16,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using IdentidadeManager;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Http;
 
 namespace EG.Controllers
 {
@@ -126,6 +127,26 @@ namespace EG.Controllers
                         // Info.
                         IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString(), Get_Permissions(v.id));
                         Get_Permissions(v.id);
+                        using(var client = new HttpClient())
+                        {
+                            client.BaseAddress = new Uri("http://localhost:55238/api/");
+                            var data = new
+                            {
+                                Userid = v.id,
+                                Data_Hora_Login = DateTime.Now,
+                                Data_Hora_Logoff = DateTime.Now
+                             };
+
+                            //client.DefaultRequestHeaders.Add("token", token);
+                            var response = client.PostAsJsonAsync("regists", data);
+                            response.Wait();
+                            var result = response.Result;
+                            if (result.IsSuccessStatusCode)
+                            {
+                                Console.WriteLine("sucess");
+                            }
+
+                        }
                         return this.RedirectToLocal(returnUrl);
                     }
                     else

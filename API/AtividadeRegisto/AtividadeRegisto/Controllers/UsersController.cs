@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using AtividadeDataAcess;
+using Acessos_DB;
 
 namespace AtividadeRegisto.Controllers
 {
@@ -80,7 +80,22 @@ namespace AtividadeRegisto.Controllers
             }
 
             db.Users.Add(user);
-            db.SaveChanges();
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (UserExists(user.id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = user.id }, user);
         }

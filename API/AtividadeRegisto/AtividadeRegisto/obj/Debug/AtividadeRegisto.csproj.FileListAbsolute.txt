@@ -48,7 +48,6 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\ro
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\roslyn\VBCSCompiler.exe
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Antlr3.Runtime.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\AtividadeDataAcess.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Microsoft.AspNet.TelemetryCorrelation.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Microsoft.Web.Infrastructure.dll
@@ -66,8 +65,6 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Sy
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\System.Web.WebPages.Razor.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\WebGrease.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\EntityFramework.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\AtividadeDataAcess.pdb
-C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\AtividadeDataAcess.dll.config
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Newtonsoft.Json.xml
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\System.Net.Http.Formatting.xml
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\System.Web.Helpers.xml
@@ -91,3 +88,6 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\obj\De
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\obj\Debug\AtividadeRegisto.pdb
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\EntityFramework.SqlServer.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\EntityFramework.SqlServer.xml
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Acessos_DB.dll
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Acessos_DB.pdb
+C:\Users\Rui Meira\Desktop\Eng_Soft\API\AtividadeRegisto\AtividadeRegisto\bin\Acessos_DB.dll.config

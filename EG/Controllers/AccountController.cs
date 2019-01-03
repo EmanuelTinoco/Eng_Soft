@@ -17,6 +17,7 @@ using IdentidadeManager;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace EG.Controllers
 {
@@ -137,9 +138,13 @@ namespace EG.Controllers
                                 Data_Hora_Logoff = DateTime.Now
                              };
 
-                            //client.DefaultRequestHeaders.Add("token", token);
-                            var response = client.PostAsJsonAsync("regists", data);
+                            var response = client.PostAsJsonAsync("registos", data);
                             response.Wait();
+                            char[] delimiterChars = { '"', ':', '{', '}', ',' };
+                            var contentString = response.Result.Content.ReadAsStringAsync().Result;
+                            IdentidadeUser.Change_ID_Registo(int.Parse(contentString.Split(delimiterChars)[4]));
+
+
                             var result = response.Result;
                             if (result.IsSuccessStatusCode)
                             {
@@ -458,6 +463,26 @@ namespace EG.Controllers
                 var authenticationManager = ctx.Authentication;
                 // Sign Out.    
                 authenticationManager.SignOut();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://localhost:55238/api/");
+                    var data = new
+                    {
+                        Data_Hora_Logoff = DateTime.Now
+                    };
+                    int id = IdentidadeUser.ID_Registo();
+                    string req = "registos/" + id;
+                    var response = client.PutAsJsonAsync(req,data);
+                    response.Wait();
+                    
+
+                    var result = response.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("sucess");
+                    }
+
+                }
             }
             catch (Exception ex)
             {

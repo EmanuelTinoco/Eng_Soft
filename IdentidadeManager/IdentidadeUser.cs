@@ -35,6 +35,16 @@ namespace IdentidadeManager
             return ListaUser[0].Admin;
         }
 
+        public static void Change_ID_Registo(int id_registo)
+        {
+            ListaUser[0].ID_Registo = id_registo;
+        }
+
+        public static int ID_Registo()
+        {
+            return ListaUser[0].ID_Registo;
+        }
+
         public static bool isResidente()
         {
             return ListaUser[0].Residente;

@@ -81,7 +81,7 @@ namespace AtividadeRegisto.Controllers
 
             db.Registoes.Add(registo);
             db.SaveChanges();
-
+            
             return CreatedAtRoute("DefaultApi", new { id = registo.id }, registo);
         }
 

@@ -14,6 +14,7 @@ namespace IdentidadeManager
         private bool admin;
         private bool residente;
         private bool membro;
+        private int id_registo = -1;
 
         public Identidade(string nome, string id, bool[]perm)
         {
@@ -51,6 +52,12 @@ namespace IdentidadeManager
         {
             get { return membro; }
             set { membro = value; }
+        }
+
+        public int ID_Registo
+        {
+            get { return id_registo; }
+            set { id_registo = value; }
         }
     }
 

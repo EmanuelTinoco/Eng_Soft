@@ -19,7 +19,8 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <WebStackScaffolding_DbContextTypeFullName>AtividadeDataAcess.registoatividadeEntities</WebStackScaffolding_DbContextTypeFullName>
+    <WebStackScaffolding_DbContextTypeFullName>Acessos_DB.registoatividadeEntities</WebStackScaffolding_DbContextTypeFullName>
+    <WebStackScaffolding_DbContextDialogWidth>600</WebStackScaffolding_DbContextDialogWidth>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

@@ -268,3 +268,5 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.csproj.CoreCompileInputs.cac
 C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.csproj.CopyComplete
 C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.pdb
+C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Facebook.dll
+C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Facebook.xml

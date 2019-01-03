@@ -16,8 +16,12 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using IdentidadeManager;
 using System.Net;
 using System.Net.Mail;
+<<<<<<< HEAD
 using System.Net.Http;
 using Newtonsoft.Json;
+=======
+using Facebook;
+>>>>>>> 3247a764181c242d62524717d11cf7196d8bba58
 
 namespace EG.Controllers
 {
@@ -72,6 +76,16 @@ namespace EG.Controllers
                 _userManager = value;
             }
         }
+
+        public static string EconfUser { get; set; }
+
+        public static string OEmail { get; set; }
+        public static string ODataNascimento { get; set; }
+        public static string OFnome { get; set; }
+        public static string OLnome { get; set; }
+
+
+
         #endregion
         #region Login methods    
         /// <summary>  
@@ -116,13 +130,13 @@ namespace EG.Controllers
                 if (ModelState.IsValid)
                 {
                     // Initialization.    
-                    // var loginInfo = this.databaseManager.LoginByUsernamePassword(model.Username, model.Password).ToList();
+                    // var info = this.databaseManager.LoginByUsernamePassword(model.Username, model.Password).ToList();
                     // Verification.    
                     var v = db.Utilizador.Where(a => a.username.Equals(u.username) && a.password.Equals(u.password)).FirstOrDefault();
                     if (v != null)
                     {
                         // Initialization.    
-                       
+
                         // Login In.    
                         this.SignInUser(u.username, false);
                         // Info.
@@ -170,34 +184,35 @@ namespace EG.Controllers
             return this.View(u);
         }
 
-        
+
         private bool[] Get_Permissions(int id)
         {
             bool[] perm = { false, false, false };
             var permissions = (from user in db.Utilizador
                                join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
                                where user.id == id && user_p.ativo == 1
-                               select new {
+                               select new
+                               {
                                    PERM = user_p.perfil_id
                                }).Take(4);
             foreach (var p in permissions)
             {
-                if(p.PERM == 1)
+                if (p.PERM == 1)
                 {
                     perm[0] = true;
                 }
-                if(p.PERM == 2)
+                if (p.PERM == 2)
                 {
                     perm[1] = true;
                 }
-                if(p.PERM == 4)
+                if (p.PERM == 4)
                 {
                     perm[2] = true;
                 }
             }
 
             return perm;
-           
+
         }
 
 
@@ -373,31 +388,47 @@ namespace EG.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
+        [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
+        public async Task<ActionResult> ExternalLoginCallback(string returnUrl = null)
         {
-            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
-            if (loginInfo == null)
-            {
-                return RedirectToAction("Login");
-            }
 
-            // Faça logon do usuário com este provedor de logon externo se o usuário já tiver um logon
-            var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
-            switch (result)
+            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+            if (info == null)
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
-                case SignInStatus.Failure:
-                default:
-                    // Se o usuário não tiver uma conta, solicite que o usuário crie uma conta
-                    ViewBag.ReturnUrl = returnUrl;
-                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                return RedirectToAction("Index", "Home");
+            }
+            string userproKey = info.Login.ProviderKey;
+
+            //Procuro na BD se o user ja eiste
+            var user = db.Utilizador.Where(a => a.email.Equals(info.Email.ToString()) && a.password.Equals(info.Login.ProviderKey.ToString())).FirstOrDefault();
+            //se Exisitir entra
+            if (user != null)
+            {
+                this.SignInUser(user.username, false);
+                IdentidadeUser.AddIdentidadeUser(user.username, user.id.ToString(), Get_Permissions(user.id));
+
+                return this.RedirectToAction("Index", "Home");
+            }
+            //
+            else
+            {
+                ViewBag.ReturnUrl = returnUrl;
+                ViewBag.LoginProvider = info.Login.LoginProvider;
+
+                if (info.Login.LoginProvider == "Google")
+                {
+                    OEmail = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email).Value;
+                    //OFnome = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == "https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenName").Value;
+                    //OLnome = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == "https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
+                }
+                else
+                {
+                    OEmail = null;
+                    OFnome = null;
+                    OLnome = null;
+                }
+                return View("ExternalLoginConfirmation");
             }
         }
 
@@ -413,31 +444,48 @@ namespace EG.Controllers
                 return RedirectToAction("Index", "Manage");
             }
 
-            if (ModelState.IsValid)
+            // Obter as informações sobre o usuário do provedor de logon externo
+            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+
+            if (info == null)
             {
-                // Obter as informações sobre o usuário do provedor de logon externo
-                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-                if (info == null)
-                {
-                    return View("ExternalLoginFailure");
-                }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user);
-                if (result.Succeeded)
-                {
-                    result = await UserManager.AddLoginAsync(user.Id, info.Login);
-                    if (result.Succeeded)
-                    {
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
-                    }
-                }
-                AddErrors(result);
+                return View("ExternalLoginFailure");
             }
 
-            ViewBag.ReturnUrl = returnUrl;
-            return View(model);
+            var user = new Utilizador
+            {
+                password = info.Login.ProviderKey,
+                email = info.Email,
+                username = info.DefaultUserName.ToString(),
+                cc = model.cc,
+                nome=model.nome,
+                n_eleitor=model.n_eleitor,
+                contacto=model.contacto,
+                cod_postal="4720"
+
+            };
+
+            int perfil_id = 3;
+
+            if (user.cod_postal.Equals("Amares"))
+            {
+                perfil_id = 2;
+            }
+
+            db.Utilizador.Add(user);
+            //Utilizador_PerfilController.adiciona(user.id, perfil_id);
+
+            db.SaveChanges();
+
+
+            this.SignInUser(user.username, false);
+            // Info.
+            IdentidadeUser.AddIdentidadeUser(user.username, user.id.ToString(), Get_Permissions(user.id));
+            Get_Permissions(user.id);
+            return this.RedirectToLocal(returnUrl);
+
         }
+
 
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
@@ -599,5 +647,4 @@ namespace EG.Controllers
         #endregion
         #endregion
     }
-}  
-   
+}

@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using EG.Models;
+using System.Configuration;
 
 namespace EG
 {
@@ -40,11 +41,36 @@ namespace EG
             // appId: "",   
             // appSecret: "");   
 
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //{
+            //    ClientId = "153357369749-j9s69fl4aft5jklgj3803c4fvv9scjie.apps.googleusercontent.com",
+            //    ClientSecret = "3QHvJoKcoSCYtfS6rEmclSAr",
+            //});
+            var googleAuthenticationOptions = new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "153357369749-j9s69fl4aft5jklgj3803c4fvv9scjie.apps.googleusercontent.com",
-                ClientSecret = "3QHvJoKcoSCYtfS6rEmclSAr",
-            });
+                ClientId = ConfigurationManager.AppSettings["GglI"],
+                ClientSecret = ConfigurationManager.AppSettings["GglS"],
+                Provider = new GoogleOAuth2AuthenticationProvider()
+                {
+                    OnAuthenticated = async context =>
+                      {
+                          context.Identity.AddClaim(new System.Security.Claims.Claim("GoogleAccessToken", context.AccessToken));
+
+                          foreach (var claim in context.User)
+                          {
+                              var claimType = string.Format("urn:Google:{0}", claim.Key);
+                              string claymValue = claim.Value.ToString();
+                              if (!context.Identity.HasClaim(claimType, claymValue))
+                              {
+                                  context.Identity.AddClaim(new System.Security.Claims.Claim(claimType, claymValue, "XmlSchemaString", "Google"));
+                              }
+                          }
+                      }
+                }
+            };
+            googleAuthenticationOptions.Scope.Add("https://www.googleapis.com/auth/plus.login email");
+            app.UseGoogleAuthentication(googleAuthenticationOptions);
+
         }
     }
 }

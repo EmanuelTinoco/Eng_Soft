@@ -1,4 +1,5 @@
-﻿@model EG.Models.ExternalLoginConfirmationViewModel
+﻿@model BD.Utilizador
+@using EG.Controllers
 @{
     ViewBag.Title = "Registre-se";
 }
@@ -17,13 +18,56 @@
         Insira um nome de usuário para este site abaixo e clique no botão Registrar para concluir
         o login.
     </p>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+    if (AccountController.OEmail != null)
+    {
+        ViewBag.OEmail = AccountController.OEmail;
+
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.cod_postal, "Codigo Postal", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("cod_postal", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.cod_postal, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.nome, new { @class = "col-md-2 control-label", @value = AccountController.OEmail, @readonly = "redonly", @style = "text-transform: capitalize" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.nome, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.nome, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.contacto, new { @class = "col-md-2 control-label", @value = AccountController.OEmail, @readonly = "redonly", @style = "text-transform: capitalize" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.contacto, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.contacto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.n_eleitor, new { @class = "col-md-2 control-label", @value = AccountController.OEmail, @readonly = "redonly", @style = "text-transform: capitalize" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.n_eleitor, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.n_eleitor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.cc, new { @class = "col-md-2 control-label", @value = AccountController.OEmail, @readonly = "redonly", @style = "text-transform: capitalize" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.cc, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.cc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    }
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Registre-se" />

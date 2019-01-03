@@ -16,12 +16,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using IdentidadeManager;
 using System.Net;
 using System.Net.Mail;
-<<<<<<< HEAD
+
 using System.Net.Http;
 using Newtonsoft.Json;
-=======
+
 using Facebook;
->>>>>>> 3247a764181c242d62524717d11cf7196d8bba58
 
 namespace EG.Controllers
 {

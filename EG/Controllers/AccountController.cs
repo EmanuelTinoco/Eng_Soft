@@ -138,8 +138,11 @@ namespace EG.Controllers
                         // Login In.    
                         this.SignInUser(u.username, false);
                         // Info.
-                        IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString(), Get_Permissions(v.id));
-                        Get_Permissions(v.id);
+                        HttpCookie cookie = new HttpCookie("user");
+                        cookie["id"] = v.id.ToString();
+                        Response.Cookies.Add(cookie);
+                        //IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString(), Get_Permissions(v.id));
+                        //Get_Permissions(v.id);
                         using(var client = new HttpClient())
                         {
                             client.BaseAddress = new Uri("http://localhost:55238/api/");
@@ -546,8 +549,9 @@ namespace EG.Controllers
                 var authenticationManager = ctx.Authentication;
                 // Sign Out.    
                 authenticationManager.SignOut();
-                Edit_Regist(IdentidadeUser.ID_Registo());
-                
+                string gasgjdagj = Request.Cookies["user"].Value;
+                Response.Cookies["cookie"].Expires = DateTime.Now.AddDays(-1);
+
             }
             catch (Exception ex)
             {

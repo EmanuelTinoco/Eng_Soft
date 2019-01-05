@@ -19,7 +19,8 @@ namespace EG.Controllers
             {
                 client.BaseAddress = new Uri("http://localhost:55238/api/");
                 //HTTP GET
-                var responseTask = client.GetAsync("registos");
+                string id = Request.Cookies["user"]["id"];
+                var responseTask = client.GetAsync("registos/"+ id);
                 responseTask.Wait();
 
                 var result = responseTask.Result;
@@ -63,7 +64,26 @@ namespace EG.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        public bool Edit(int id)
+        {
+            bool b = false;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:55238/api/");
+                //HTTP GET
+                var responseTask = client.GetAsync("registo?id=" + id.ToString());
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    b = true;
+                }
+            }
+
+            return b;
+        }
 
         //public ActionResult Edit(int id)
         //{

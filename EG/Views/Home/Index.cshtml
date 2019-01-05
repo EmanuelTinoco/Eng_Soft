@@ -5,37 +5,44 @@
 }
 <div class="jumbotron">
     <h1>Welcome</h1>
-    <p class="lead">Login from "@User.Identity.Name" Account.</p>
+    <li>
+        @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")
+    </li>
+    @*<p class="lead">Login from "@User.Identity.Name" Account.</p>
     este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
     este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()
     @if (IdentidadeManager.IdentidadeUser.isAdmin())
     {
         <h2>Funcionalidade De Admin</h2>
         <li>
-            @Html.ActionLink("Editar Permissões dos Utilizadoes", "Index", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
+            @Html.ActionLink("Editar Permissões dos Utilizadoes", "Index", "Utilizadors")
         </li>
     }
 
     <h2>Funcionalidades</h2>
 
     <li>
-        @Html.ActionLink("Editar Dados", "Edit", "Utilizadors", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
+        @Html.ActionLink("Editar Dados", "Edit", "Utilizadors")
     </li>
 
     <li>
-        @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
+        @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos")
     </li>
 
     <li>
-        @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
+        @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentos")
     </li>
 
     <li>
-        @Html.ActionLink("Pedido Declaração", "Create", "Pedido_Declaracao", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
+        @Html.ActionLink("Pedido Declaração", "Create", "Pedido_Declaracao")
     </li>
 
     <li>
-        @Html.ActionLink("Declarações", "Create", "Declaracaos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
+        @Html.ActionLink("Declarações", "Create", "Declaracaos")
     </li>
+
+    <li>
+        @Html.ActionLink("Registos de Login", "Index", "Registo")
+    </li>*@
 
 </div>  

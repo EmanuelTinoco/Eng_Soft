@@ -277,3 +277,5 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Net.Http.Formatting.xml
 >>>>>>> 34445d49235a1fb17243600c43ea8d6b4cb78284
 C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Net.Http.Formatting.dll
 C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Net.Http.Formatting.xml
+C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Facebook.dll
+C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Facebook.xml

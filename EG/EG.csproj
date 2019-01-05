@@ -209,6 +209,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Pedido_DeclaracaoController.cs" />
     <Compile Include="Controllers\PerfilsController.cs" />
+    <Compile Include="Controllers\RegistoController.cs" />
     <Compile Include="Controllers\Reportar_ProblemaController.cs" />
     <Compile Include="Controllers\SugestaosController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Registo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -370,6 +372,8 @@
     <Content Include="Views\Account\RecuperarPassWord.cshtml" />
     <Content Include="Views\Account\RecuperarPassWordConfirmacao.cshtml" />
     <Content Include="Views\Account\PlaceCord.cshtml" />
+    <Content Include="Views\Registo\Index.cshtml" />
+    <Content Include="Views\Utilizadors\EditMyProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

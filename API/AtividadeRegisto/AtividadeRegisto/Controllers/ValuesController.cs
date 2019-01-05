@@ -4,8 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using AtividadeDataAcess;
-
+using Acessos_DB;
 namespace AtividadeRegisto.Controllers
 {
     public class ValuesController : ApiController

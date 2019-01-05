@@ -268,5 +268,12 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.csproj.CoreCompileInputs.cac
 C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.csproj.CopyComplete
 C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.pdb
+<<<<<<< HEAD
 C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Facebook.dll
 C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Facebook.xml
+=======
+C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Net.Http.Formatting.dll
+C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Net.Http.Formatting.xml
+>>>>>>> 34445d49235a1fb17243600c43ea8d6b4cb78284
+C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Net.Http.Formatting.dll
+C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Net.Http.Formatting.xml

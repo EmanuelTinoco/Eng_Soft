@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using BD;
@@ -70,8 +71,29 @@ namespace EG.Controllers
                 }
                 
                 db.SaveChanges();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://localhost:55238/api/");
+                    var data = new
+                    {
+                        id = utilizador.id,
+                        userName = utilizador.username,
+                        email = utilizador.email
+                    };
+
+                    //client.DefaultRequestHeaders.Add("token", token);
+                    var response = client.PostAsJsonAsync("users", data);
+                    response.Wait();
+                    var result = response.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("sucess");
+                    }
+
+                }
                 Utilizador_PerfilController.adiciona(utilizador.id, perfil_id);
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Account", new { area = "" });
+                //return RedirectToAction("Index");
             }
 
             ViewBag.id = new SelectList(db.Agendamento, "id", "objetivo", utilizador.id);

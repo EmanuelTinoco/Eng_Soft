@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using EG.Models;
 using System.Configuration;
+using Microsoft.Owin.Security.Facebook;
 
 namespace EG
 {
@@ -70,6 +71,25 @@ namespace EG
             };
             googleAuthenticationOptions.Scope.Add("https://www.googleapis.com/auth/plus.login email");
             app.UseGoogleAuthentication(googleAuthenticationOptions);
+
+            var facebookAuthenticationOptions = new FacebookAuthenticationOptions()
+            {
+                AppId = ConfigurationManager.AppSettings["FaCI"],
+                AppSecret = ConfigurationManager.AppSettings["FaCS"],
+
+                Provider = new FacebookAuthenticationProvider()
+                {
+                    OnAuthenticated = async context =>
+                    {
+                        context.Identity.AddClaim(new System.Security.Claims.Claim("FacebookAccessToken", context.AccessToken));
+                    }
+                }
+            };
+
+            facebookAuthenticationOptions.Scope.Add("public_profile");
+            facebookAuthenticationOptions.Scope.Add("email");
+            app.UseFacebookAuthentication(facebookAuthenticationOptions);
+
 
         }
     }

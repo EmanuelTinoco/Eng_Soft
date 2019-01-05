@@ -16,7 +16,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using IdentidadeManager;
 using System.Net;
 using System.Net.Mail;
+
 using Facebook;
+using System.Net.Http;
+
+using Newtonsoft.Json;
 
 namespace EG.Controllers
 {
@@ -73,7 +77,6 @@ namespace EG.Controllers
         }
 
         public static string EconfUser { get; set; }
-
         public static string OEmail { get; set; }
         public static string ODataNascimento { get; set; }
         public static string OFnome { get; set; }
@@ -137,6 +140,30 @@ namespace EG.Controllers
                         // Info.
                         IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString(), Get_Permissions(v.id));
                         Get_Permissions(v.id);
+                        using(var client = new HttpClient())
+                        {
+                            client.BaseAddress = new Uri("http://localhost:55238/api/");
+                            var data = new
+                            {
+                                Userid = v.id,
+                                Data_Hora_Login = DateTime.Now,
+                                Data_Hora_Logoff = DateTime.Now
+                             };
+
+                            var response = client.PostAsJsonAsync("registos", data);
+                            response.Wait();
+                            char[] delimiterChars = { '"', ':', '{', '}', ',' };
+                            var contentString = response.Result.Content.ReadAsStringAsync().Result;
+                            IdentidadeUser.Change_ID_Registo(int.Parse(contentString.Split(delimiterChars)[4]));
+
+
+                            var result = response.Result;
+                            if (result.IsSuccessStatusCode)
+                            {
+                                Console.WriteLine("sucess");
+                            }
+
+                        }
                         return this.RedirectToLocal(returnUrl);
                     }
                     else
@@ -259,6 +286,27 @@ namespace EG.Controllers
         }
 
 
+        [AllowAnonymous]
+        public ActionResult PlaceCord(string returnUrl)
+        {
+            try
+            {
+                // Verification.    
+                if (this.Request.IsAuthenticated)
+                {
+                    // Info.    
+                    return this.RedirectToLocal(returnUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                Console.Write(ex);
+            }
+            // Info.    
+            return this.View();
+        }
+
 
 
         //
@@ -350,14 +398,6 @@ namespace EG.Controllers
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
-
-        //[AllowAnonymous]
-        //public ActionResult ExternalLoginCallback(string returnUrl)
-        //{
-        //    return RedirectPermanent("/Account/ExternalLoginCallback");
-        //}
-
-        //
         // GET: /Account/ExternalLoginCallback
         [HttpGet]
         [AllowAnonymous]
@@ -392,6 +432,30 @@ namespace EG.Controllers
                     OEmail = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email).Value;
                     //OFnome = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == "https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenName").Value;
                     //OLnome = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == "https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
+                }
+
+                else if (info.Login.LoginProvider=="Facebook")
+                {
+                    var identity = AuthenticationManager.GetExternalIdentity(DefaultAuthenticationTypes.ExternalCookie);
+                    var access_token = identity.FindFirstValue("FacebookAccessToken");
+                    var fb = new FacebookClient(access_token);
+
+
+
+                    //dynamic me = fb.Get("me");
+                    //string firstName = me.first_name;
+                    //string lastName = me.last_name;
+                    //string email = me.email;
+
+                    //dynamic uEmail = fb.Get("/m?fields=email");
+                    //dynamic uNome = fb.Get("/m?fields=first_name");
+                    //dynamic uApelido = fb.Get("/m?fields=last_name");
+
+                    OEmail = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email).Value;
+                    OFnome = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName).Value;
+                    //OFnome = firstName;
+                    //OLnome = lastName;
+
                 }
                 else
                 {
@@ -482,6 +546,26 @@ namespace EG.Controllers
                 var authenticationManager = ctx.Authentication;
                 // Sign Out.    
                 authenticationManager.SignOut();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://localhost:55238/api/");
+                    var data = new
+                    {
+                        Data_Hora_Logoff = DateTime.Now
+                    };
+                    int id = IdentidadeUser.ID_Registo();
+                    string req = "registos/" + id;
+                    var response = client.PutAsJsonAsync(req,data);
+                    response.Wait();
+                    
+
+                    var result = response.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("sucess");
+                    }
+
+                }
             }
             catch (Exception ex)
             {

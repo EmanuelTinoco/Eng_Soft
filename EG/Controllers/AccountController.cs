@@ -546,26 +546,8 @@ namespace EG.Controllers
                 var authenticationManager = ctx.Authentication;
                 // Sign Out.    
                 authenticationManager.SignOut();
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri("http://localhost:55238/api/");
-                    var data = new
-                    {
-                        Data_Hora_Logoff = DateTime.Now
-                    };
-                    int id = IdentidadeUser.ID_Registo();
-                    string req = "registos/" + id;
-                    var response = client.PutAsJsonAsync(req,data);
-                    response.Wait();
-                    
-
-                    var result = response.Result;
-                    if (result.IsSuccessStatusCode)
-                    {
-                        Console.WriteLine("sucess");
-                    }
-
-                }
+                Edit_Regist(IdentidadeUser.ID_Registo());
+                
             }
             catch (Exception ex)
             {
@@ -574,6 +556,27 @@ namespace EG.Controllers
             }
             // Info.    
             return this.RedirectToAction("Login", "Account");
+        }
+
+        private bool Edit_Regist(int id)
+        {
+            bool b = false;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:55238/api/");
+                //HTTP GET
+                var responseTask = client.GetAsync("registo?id=" + id.ToString());
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    b = true;
+                }
+            }
+
+            return b;
         }
 
         #endregion

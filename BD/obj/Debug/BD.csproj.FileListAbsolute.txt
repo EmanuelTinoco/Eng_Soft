@@ -22,3 +22,14 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.csproj.CopyComplete
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.pdb
 C:\Users\Emanuel Tinoco\source\repos\EG\BD\obj\Debug\BD.csprojAssemblyReference.cache
+C:\Users\user\Source\Repos\Eng_Soft\BD\bin\Debug\BD.dll.config
+C:\Users\user\Source\Repos\Eng_Soft\BD\bin\Debug\BD.dll
+C:\Users\user\Source\Repos\Eng_Soft\BD\bin\Debug\BD.pdb
+C:\Users\user\Source\Repos\Eng_Soft\BD\bin\Debug\EntityFramework.dll
+C:\Users\user\Source\Repos\Eng_Soft\BD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Source\Repos\Eng_Soft\BD\bin\Debug\EntityFramework.xml
+C:\Users\user\Source\Repos\Eng_Soft\BD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Source\Repos\Eng_Soft\BD\obj\Debug\BD.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\Eng_Soft\BD\obj\Debug\BD.csproj.CopyComplete
+C:\Users\user\Source\Repos\Eng_Soft\BD\obj\Debug\BD.dll
+C:\Users\user\Source\Repos\Eng_Soft\BD\obj\Debug\BD.pdb

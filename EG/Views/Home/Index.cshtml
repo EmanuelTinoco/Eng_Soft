@@ -1,8 +1,13 @@
-﻿@model IEnumerable<BD.Utilizador>
+﻿
+
+@model IEnumerable<BD.Utilizador>
 
 @{
     ViewBag.Title = "ADO.NET Integration - Home";
 }
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <div class="jumbotron">
     <h1>Welcome</h1>
     <p class="lead">Login from "@User.Identity.Name" Account.</p>
@@ -41,4 +46,36 @@
         @Html.ActionLink("Declarações", "Create", "Declaracaos", new { id = int.Parse(IdentidadeManager.IdentidadeUser.GetId()) }, null)
     </li>
 
+    <p></p>
+
+    <div style="width:50%;overflow:hidden">
+        <div id="inboxHeader">
+
+
+
+
+            <h2>Weather</h2>
+            <p id="name"></p>
+            <p id="temp"></p>
+            <p id="humidade"></p>
+            <button>Ver Clima</button>
+
+
+            <script>
+            $(document).ready(function () {
+                $("button").click(function () {
+                    $.get("@Url.Action("GetWeather","Weather")", function (response) {;
+                        console.log(response);
+                        $("#name").text(response.name);
+                        $("#temp").text(response.main.temp);
+                        $("#humidade").text(response.main.humidity);
+
+                    });
+                });
+            });
+            </script>
+        </div>
+    </div>
 </div>  
+
+

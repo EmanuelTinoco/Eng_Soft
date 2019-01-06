@@ -9,3 +9,8 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManage
 C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.csproj.CoreCompileInputs.cache
 C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.pdb
+C:\Users\user\Source\Repos\Eng_Soft\IdentidadeManager\bin\Debug\IdentidadeManager.dll
+C:\Users\user\Source\Repos\Eng_Soft\IdentidadeManager\bin\Debug\IdentidadeManager.pdb
+C:\Users\user\Source\Repos\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.dll
+C:\Users\user\Source\Repos\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.pdb

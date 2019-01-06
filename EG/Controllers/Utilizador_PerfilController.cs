@@ -76,7 +76,7 @@ namespace EG.Controllers
         }
 
         // GET: Utilizador_Perfil/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
@@ -89,14 +89,10 @@ namespace EG.Controllers
                 return null;
             }
             Utilizador_Perfil user_perfil = db.Utilizador_Perfil.Find(id, 3);//este utilizador tem sempre que existir, porque é nao residente
-
-            Utilizador_Perfil a = db.Utilizador_Perfil.Find(id, 1);
-            Utilizador_Perfil r = db.Utilizador_Perfil.Find(id, 2);
-            Utilizador_Perfil m = db.Utilizador_Perfil.Find(id, 4);
-            user_perfil.admin = a == null ? false : true;
-            user_perfil.residente = r == null ? false : true;
-            user_perfil.membro = m == null ? false : true;
-
+            user_perfil.admin = isAdmin(id);
+            user_perfil.residente = isResidente(id);
+            user_perfil.membro = isMembro(id);
+            
 
             ViewBag.perfil_id = new SelectList(db.Utilizador_Perfil, "id_user", "ID tipo Utilizador", user_perfil.perfil_id);
             ViewBag.user_id = new SelectList(db.Utilizador_Perfil, "id", "ID", user_perfil.user_id);
@@ -180,7 +176,55 @@ namespace EG.Controllers
             
         }
 
-        
+        private bool isAdmin(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 1
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isResidente(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 2
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isMembro(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 4
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
         public bool changePermission(int u_id, int p_id, bool status)
         {
             Utilizador_Perfil user = PermissionExists(u_id, p_id);

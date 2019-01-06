@@ -370,11 +370,9 @@
     <Content Include="Views\Utilizadors\EditUsers.cshtml" />
     <Content Include="Views\Account\RecuperarPassWord.cshtml" />
     <Content Include="Views\Account\RecuperarPassWordConfirmacao.cshtml" />
-    <Content Include="Views\Shared\Weather.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Weather\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

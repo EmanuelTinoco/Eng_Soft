@@ -50,21 +50,22 @@
 
     <div style="width:50%;overflow:hidden">
         <div id="inboxHeader">
-
-
-
-
             <h2>Weather</h2>
-            <p id="name"></p>
-            <p id="temp"></p>
-            <p id="humidade"></p>
-            <button>Ver Clima</button>
+     
 
-
+                <p id="name"></p>
+                <p id="temp"></p>
+                <p id="humidade"></p>
+                <button>Ver Clima</button>
+           
+            
             <script>
+                  
             $(document).ready(function () {
                 $("button").click(function () {
-                    $.get("@Url.Action("GetWeather","Weather")", function (response) {;
+
+                    $.get("@Url.Action("GetWeather", "Weather")",  function (response) {
+
                         console.log(response);
                         $("#name").text(response.name);
                         $("#temp").text(response.main.temp);
@@ -73,9 +74,10 @@
                     });
                 });
             });
-            </script>
+                </script>
         </div>
     </div>
-</div>  
+
+</div>
 
 

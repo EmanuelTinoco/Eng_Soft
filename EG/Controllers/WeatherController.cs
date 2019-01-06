@@ -11,10 +11,10 @@ namespace EG.Controllers
     {
         
 
-        public JsonResult GetWeather()
+        public JsonResult GetWeather(string localidade)
         {
             Weather weath = new Weather();
-            return Json(weath.getWeather(), JsonRequestBehavior.AllowGet);
+            return Json(weath.getWeather(localidade), JsonRequestBehavior.AllowGet);
         }       
 
         // POST: Weather/Create

@@ -376,7 +376,7 @@
     <Content Include="Views\Registo\Index.cshtml" />
     <Content Include="Views\Utilizadors\EditMyProfile.cshtml" />
     <Content Include="Views\Utilizador_Perfil\Edit.cshtml" />
-    <Content Include="Views\Permicoes\Edit.cshtml" />
+    <Content Include="Views\Permicoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

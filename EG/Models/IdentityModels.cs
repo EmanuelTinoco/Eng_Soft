@@ -34,6 +34,8 @@ namespace EG.Models
         }
 
         public System.Data.Entity.DbSet<EG.Models.Registo> Registoes { get; set; }
+
+        public System.Data.Entity.DbSet<EG.Models.Permicoes> Permicoes { get; set; }
     }
 
 

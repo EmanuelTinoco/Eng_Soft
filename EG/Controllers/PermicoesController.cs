@@ -12,8 +12,9 @@ namespace EG.Controllers
     {
         private static estp2Entities db = new estp2Entities();
         // GET: Permicoes
-        public ActionResult Edit(int id)
+        public ActionResult Index()
         {
+            int id = 6;
             Permicoes p = new Permicoes();
             p.Id = id;
             p.Admin = isAdmin(id);

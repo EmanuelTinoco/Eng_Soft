@@ -209,6 +209,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Pedido_DeclaracaoController.cs" />
     <Compile Include="Controllers\PerfilsController.cs" />
+    <Compile Include="Controllers\PermicoesController.cs" />
     <Compile Include="Controllers\RegistoController.cs" />
     <Compile Include="Controllers\Reportar_ProblemaController.cs" />
     <Compile Include="Controllers\SugestaosController.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Permicoes.cs" />
     <Compile Include="Models\Registo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -336,7 +338,6 @@
     <Content Include="Views\Utilizador_Perfil\Create.cshtml" />
     <Content Include="Views\Utilizador_Perfil\Delete.cshtml" />
     <Content Include="Views\Utilizador_Perfil\Details.cshtml" />
-    <Content Include="Views\Utilizador_Perfil\Edit.cshtml" />
     <Content Include="Views\Utilizador_Perfil\Index.cshtml" />
     <Content Include="Views\Perfils\Create.cshtml" />
     <Content Include="Views\Perfils\Delete.cshtml" />
@@ -374,9 +375,12 @@
     <Content Include="Views\Account\PlaceCord.cshtml" />
     <Content Include="Views\Registo\Index.cshtml" />
     <Content Include="Views\Utilizadors\EditMyProfile.cshtml" />
+    <Content Include="Views\Utilizador_Perfil\Edit.cshtml" />
+    <Content Include="Views\Permicoes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Perms\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

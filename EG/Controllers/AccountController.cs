@@ -127,9 +127,6 @@ namespace EG.Controllers
                 // Verification.    
                 if (ModelState.IsValid)
                 {
-                    // Initialization.    
-                    // var info = this.databaseManager.LoginByUsernamePassword(model.Username, model.Password).ToList();
-                    // Verification.    
                     var v = db.Utilizador.Where(a => a.username.Equals(u.username) && a.password.Equals(u.password)).FirstOrDefault();
                     if (v != null)
                     {
@@ -146,36 +143,7 @@ namespace EG.Controllers
                         cookie["id_registo"] = GetIdRegist(v.id).ToString();
                         Response.Cookies.Add(cookie);
                         
-                        //IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString(), Get_Permissions(v.id));
-                        //Get_Permissions(v.id);
-                        //using(var client = new HttpClient())
-                        //{
-                        //    client.BaseAddress = new Uri("http://localhost:55238/api/");
-                        //    var data = new
-                        //    {
-                        //        Userid = v.id,
-                        //        Data_Hora_Login = DateTime.Now,
-                        //        Data_Hora_Logoff = DateTime.Now
-                        //     };
-
-                        //    var response = client.PostAsJsonAsync("registos", data);
-                        //    response.Wait();
-                        //    char[] delimiterChars = { '"', ':', '{', '}', ',' };
-                        //    var contentString = response.Result.Content.ReadAsStringAsync().Result;
-
-                        //    //adicionar cookie com o valor do id_registo
-                        //    cookie["id_registo"] = getIdRegist(); contentString.Split(delimiterChars)[4];
-                        //    Response.Cookies.Add(cookie);
-                            
-
-
-                        //    var result = response.Result;
-                        //    if (result.IsSuccessStatusCode)
-                        //    {
-                        //        Console.WriteLine("sucess");
-                        //    }
-
-                        //}
+                       
                         return this.RedirectToLocal(returnUrl);
                     }
                     else
@@ -220,53 +188,7 @@ namespace EG.Controllers
         }
         
 
-        private bool isAdmin(int id)
-        {
-            var perm = (from user in db.Utilizador
-                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
-                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 1
-                        select new
-                        {
-                            PERM = user_p.perfil_id
-                        }).FirstOrDefault();
-            if(perm == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        private bool isResidente(int id)
-        {
-            var perm = (from user in db.Utilizador
-                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
-                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 2
-                        select new
-                        {
-                            PERM = user_p.perfil_id
-                        }).FirstOrDefault();
-            if (perm == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        private bool isMembro(int id)
-        {
-            var perm = (from user in db.Utilizador
-                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
-                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 4
-                        select new
-                        {
-                            PERM = user_p.perfil_id
-                        }).FirstOrDefault();
-            if (perm == null)
-            {
-                return false;
-            }
-            return true;
-        }
+        
 
 
         //private bool[] Get_Permissions(int id)

@@ -78,6 +78,7 @@ namespace EG.Controllers
         // GET: Utilizador_Perfil/Edit/5
         public ActionResult Edit(int id)
         {
+            bool admin, residente, membro;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -89,16 +90,23 @@ namespace EG.Controllers
                 return null;
             }
             Utilizador_Perfil user_perfil = db.Utilizador_Perfil.Find(id, 3);//este utilizador tem sempre que existir, porque é nao residente
-            user_perfil.admin = isAdmin(id);
-            user_perfil.residente = isResidente(id);
-            user_perfil.membro = isMembro(id);
+            user_perfil.admin = ViewBag.admin = isAdmin(id);
+            user_perfil.residente = ViewBag.residente = isResidente(id);
+            user_perfil.membro = ViewBag.membro = isMembro(id);
+            //membro = isMembro(id);
+            //ViewBag.admin = admin;
+            //ViewBag.residente = residente;
+            //ViewBag.membro = membro;
+            //user_perfil.admin = isAdmin(id);
+            //user_perfil.residente = isResidente(id);
+            //user_perfil.membro = isMembro(id);
             
 
-            ViewBag.perfil_id = new SelectList(db.Utilizador_Perfil, "id_user", "ID tipo Utilizador", user_perfil.perfil_id);
-            ViewBag.user_id = new SelectList(db.Utilizador_Perfil, "id", "ID", user_perfil.user_id);
-            ViewBag.admin = new SelectList(db.Utilizador_Perfil, "admin", "Admin", user_perfil.admin);
-            ViewBag.residente = new SelectList(db.Utilizador_Perfil, "residente", "Residente", user_perfil.admin);
-            ViewBag.membro = new SelectList(db.Utilizador_Perfil, "membro", "Membro da Junta", user_perfil.admin);
+            //ViewBag.perfil_id = new SelectList(db.Utilizador_Perfil, "id_user", "ID tipo Utilizador", user_perfil.perfil_id);
+            //ViewBag.user_id = new SelectList(db.Utilizador_Perfil, "id", "ID", user_perfil.user_id);
+            //ViewBag.admin = new SelectList(db.Utilizador_Perfil, "admin", "Admin", user_perfil.admin);
+            //ViewBag.residente = new SelectList(db.Utilizador_Perfil, "residente", "Residente", user_perfil.admin);
+            //ViewBag.membro = new SelectList(db.Utilizador_Perfil, "membro", "Membro da Junta", user_perfil.admin);
             
 
             return View("Edit");

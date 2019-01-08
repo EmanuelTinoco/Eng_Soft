@@ -12,7 +12,7 @@
           <Property Name="id_user" Type="int" Nullable="false" />
           <Property Name="data" Type="datetime" Nullable="false" />
           <Property Name="objetivo" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Declaracao">
           <Key>
@@ -22,7 +22,7 @@
           <Property Name="ficheiro" Type="varbinary" MaxLength="8000" Nullable="false" />
           <Property Name="data" Type="datetime" Nullable="false" />
           <Property Name="descricao" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Freguesia">
           <Key>
@@ -48,13 +48,13 @@
           <Property Name="id_user" Type="int" Nullable="false" />
           <Property Name="descricacao" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="data" Type="datetime" Nullable="false" />
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Pedido_Esclarecimento">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="data" Type="datetime" Nullable="false" />
           <Property Name="descricao" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="id" Type="int" Nullable="false" />
@@ -74,14 +74,14 @@
           <Property Name="status" Type="smallint" Nullable="false" />
           <Property Name="descricao" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="localizacao" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="foto" Type="image" Nullable="false" />
         </EntityType>
         <EntityType Name="Sugestao">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="data" Type="datetime" Nullable="false" />
           <Property Name="descricao" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="id" Type="int" Nullable="false" />
@@ -343,7 +343,7 @@
           <Property Name="id_user" Type="Int32" Nullable="false" />
           <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="objetivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Utilizador" Relationship="Self.FKAgendament310431" FromRole="Agendamento" ToRole="Utilizador" />
           <NavigationProperty Name="Utilizador1" Relationship="Self.FKAgendament310432" FromRole="Agendamento" ToRole="Utilizador" />
         </EntityType>
@@ -355,7 +355,7 @@
           <Property Name="ficheiro" Type="Binary" MaxLength="8000" FixedLength="false" Nullable="false" />
           <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="descricao" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Utilizador" Relationship="Self.FKDeclaracao925461" FromRole="Declaracao" ToRole="Utilizador" />
         </EntityType>
         <EntityType Name="Freguesia">
@@ -385,14 +385,14 @@
           <Property Name="id_user" Type="Int32" Nullable="false" />
           <Property Name="descricacao" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Utilizador" Relationship="Self.FKPedido_Dec546410" FromRole="Pedido_Declaracao" ToRole="Utilizador" />
         </EntityType>
         <EntityType Name="Pedido_Esclarecimento">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="descricao" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -415,7 +415,7 @@
           <Property Name="status" Type="Int16" Nullable="false" />
           <Property Name="descricao" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="localizacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <NavigationProperty Name="Utilizador" Relationship="Self.FKReportar_P702546" FromRole="Reportar_Problema" ToRole="Utilizador" />
           <NavigationProperty Name="Utilizador1" Relationship="Self.FKReportar_P702547" FromRole="Reportar_Problema" ToRole="Utilizador" />
@@ -424,7 +424,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id" Type="Int32" Nullable="false" />

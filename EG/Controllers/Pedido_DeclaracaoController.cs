@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BD;
-using IdentidadeManager;
 
 namespace EG.Controllers
 {
@@ -40,7 +39,7 @@ namespace EG.Controllers
         // GET: Pedido_Declaracao/Create
         public ActionResult Create()
         {
-            ViewBag.id = new SelectList(db.Utilizador, "id", "id");
+            ViewBag.id = new SelectList(db.Utilizador, "id", "cod_postal");
             return View();
         }
 
@@ -49,10 +48,8 @@ namespace EG.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "descricacao")] Pedido_Declaracao pedido_Declaracao)
+        public ActionResult Create([Bind(Include = "id,descricacao,data")] Pedido_Declaracao pedido_Declaracao)
         {
-            pedido_Declaracao.data = DateTime.Now;
-            pedido_Declaracao.id = int.Parse(IdentidadeUser.GetId());
             if (ModelState.IsValid)
             {
                 db.Pedido_Declaracao.Add(pedido_Declaracao);
@@ -89,7 +86,7 @@ namespace EG.Controllers
         {
             if (ModelState.IsValid)
             {
-                //db.Entry(pedido_Declaracao).State = EntityState.Modified;
+                db.Entry(pedido_Declaracao).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

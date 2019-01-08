@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BD;
+using EG.Models;
 
 namespace EG.Controllers
 {
@@ -76,8 +77,9 @@ namespace EG.Controllers
         }
 
         // GET: Utilizador_Perfil/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
+            //bool admin, residente, membro;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -88,35 +90,27 @@ namespace EG.Controllers
                 HttpNotFound();
                 return null;
             }
+            //Permicoes p = new Permicoes(id, isAdmin(id), isResidente(id), isMembro(id));
+            return View();
             Utilizador_Perfil user_perfil = db.Utilizador_Perfil.Find(id, 3);//este utilizador tem sempre que existir, porque é nao residente
-
-            Utilizador_Perfil a = db.Utilizador_Perfil.Find(id, 1);
-            Utilizador_Perfil r = db.Utilizador_Perfil.Find(id, 2);
-            Utilizador_Perfil m = db.Utilizador_Perfil.Find(id, 4);
-            user_perfil.admin = a == null ? false : true;
-            user_perfil.residente = r == null ? false : true;
-            user_perfil.membro = m == null ? false : true;
-
-
-            ViewBag.perfil_id = new SelectList(db.Utilizador_Perfil, "id_user", "ID tipo Utilizador", user_perfil.perfil_id);
-            ViewBag.user_id = new SelectList(db.Utilizador_Perfil, "id", "ID", user_perfil.user_id);
-            ViewBag.admin = new SelectList(db.Utilizador_Perfil, "admin", "Admin", user_perfil.admin);
-            ViewBag.residente = new SelectList(db.Utilizador_Perfil, "residente", "Residente", user_perfil.admin);
-            ViewBag.membro = new SelectList(db.Utilizador_Perfil, "membro", "Membro da Junta", user_perfil.admin);
+            user_perfil.admin = ViewBag.admin = isAdmin(id);
+            user_perfil.residente = ViewBag.residente = isResidente(id);
+            user_perfil.membro = ViewBag.membro = isMembro(id);
             
-
-            return View("Edit");
+            return View();
         }
+
+        
 
         // POST: Utilizador_Perfil/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "user_id, admin, residente, membro")] Utilizador_Perfil user_perfil)
+        public ActionResult Edit([Bind(Include = "user_id, perfil_id, data, ativo, admin, residente, membro")] Utilizador_Perfil user_perfil)
         {
             //user_perfil.user_id = int.Parse(IdentidadeManager.IdentidadeUser.GetId());
-            user_perfil.user_id = 11;
+            //user_perfil.user_id = 11;
             changePermission(user_perfil.user_id, 1, user_perfil.admin);
             changePermission(user_perfil.user_id, 2, user_perfil.residente);
             changePermission(user_perfil.user_id, 4, user_perfil.membro);
@@ -128,6 +122,8 @@ namespace EG.Controllers
             ViewBag.membro = new SelectList(db.Utilizador_Perfil, "membro", "Membro da Junta", user_perfil.admin);
             return View("Edit");
         }
+
+
 
         // GET: Utilizador_Perfil/Delete/5
         public ActionResult Delete(int? id)
@@ -166,21 +162,60 @@ namespace EG.Controllers
 
         public Utilizador_Perfil PermissionExists(int user_id, int perfil_id)
         {
-            Utilizador_Perfil user;
-            using (var context = new estp2Entities())
-            {
-                user = (from x in context.Utilizador_Perfil
-                        where x.user_id == user_id && x.perfil_id == perfil_id
-                        select x).FirstOrDefault();
-                
-            }
+            Utilizador_Perfil user = db.Utilizador_Perfil.Find(user_id, perfil_id);
+            
             return user;
-            
-            
-            
         }
 
-        
+        private bool isAdmin(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 1
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isResidente(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 2
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isMembro(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 4
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
         public bool changePermission(int u_id, int p_id, bool status)
         {
             Utilizador_Perfil user = PermissionExists(u_id, p_id);

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="estp2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="estp2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agendamento">
           <Key>
             <PropertyRef Name="id" />
@@ -43,9 +43,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id_user" Type="int" Nullable="false" />
           <Property Name="descricacao" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="data" Type="datetime" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Pedido_Esclarecimento">
           <Key>
@@ -154,13 +155,13 @@
         </Association>
         <Association Name="FKPedido_Dec546410">
           <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
-          <End Role="Pedido_Declaracao" Type="Self.Pedido_Declaracao" Multiplicity="0..1" />
+          <End Role="Pedido_Declaracao" Type="Self.Pedido_Declaracao" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Utilizador">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Pedido_Declaracao">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="id_user" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -325,8 +326,7 @@
             <End Role="Utilizador_Perfil" EntitySet="Utilizador_Perfil" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="estp2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -378,6 +378,8 @@
           <Property Name="descricacao" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Utilizador" Relationship="Self.FKPedido_Dec546410" FromRole="Pedido_Declaracao" ToRole="Utilizador" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Utilizador1" Relationship="estp2Model.FKPedido_Dec5464101" FromRole="Pedido_Declaracao" ToRole="Utilizador" />
         </EntityType>
         <EntityType Name="Pedido_Esclarecimento">
           <Key>
@@ -442,6 +444,7 @@
           <NavigationProperty Name="Reportar_Problema1" Relationship="Self.FKReportar_P702547" FromRole="Utilizador" ToRole="Reportar_Problema" />
           <NavigationProperty Name="Sugestao" Relationship="Self.FKSugestao143407" FromRole="Utilizador" ToRole="Sugestao" />
           <NavigationProperty Name="Utilizador_Perfil" Relationship="Self.FKUtilizador394182" FromRole="Utilizador" ToRole="Utilizador_Perfil" />
+          <NavigationProperty Name="Pedido_Declaracao1" Relationship="estp2Model.FKPedido_Dec5464101" FromRole="Utilizador" ToRole="Pedido_Declaracao" />
         </EntityType>
         <EntityType Name="Utilizador_Perfil">
           <Key>
@@ -675,7 +678,23 @@
             <End Role="Utilizador" EntitySet="Utilizador" />
             <End Role="Utilizador_Perfil" EntitySet="Utilizador_Perfil" />
           </AssociationSet>
+          <AssociationSet Name="FKPedido_Dec5464101" Association="estp2Model.FKPedido_Dec5464101">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Pedido_Declaracao" EntitySet="Pedido_Declaracao" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FKPedido_Dec5464101">
+          <End Type="estp2Model.Utilizador" Role="Utilizador" Multiplicity="1" />
+          <End Type="estp2Model.Pedido_Declaracao" Role="Pedido_Declaracao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pedido_Declaracao">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -723,6 +742,7 @@
           <EntitySetMapping Name="Pedido_Declaracao">
             <EntityTypeMapping TypeName="estp2Model.Pedido_Declaracao">
               <MappingFragment StoreEntitySet="Pedido_Declaracao">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="descricacao" ColumnName="descricacao" />
                 <ScalarProperty Name="data" ColumnName="data" />

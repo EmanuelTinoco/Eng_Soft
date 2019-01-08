@@ -11,37 +11,26 @@ namespace BD
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Utilizador
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Utilizador()
         {
             this.Utilizador_Perfil = new HashSet<Utilizador_Perfil>();
+            this.Pedido_Declaracao1 = new HashSet<Pedido_Declaracao>();
         }
-
+    
         public int id { get; set; }
-        [Display(Name = "Codigo Postal:")]
         public string cod_postal { get; set; }
-        [Display(Name = "Nome Completo:")]
         public string nome { get; set; }
-        [Display(Name = "Numero Cartao Cidadao:")]
         public string cc { get; set; }
-        [Display(Name = "Numero Cartao Eleitor:")]
         public string n_eleitor { get; set; }
-        [Display(Name = "Email:")]
         public string email { get; set; }
-        [Display(Name = "User Name:")]
         public string username { get; set; }
-        [Display(Name = "Password:")]
         public string password { get; set; }
-        [Display(Name = "Contacto:")]
         public int contacto { get; set; }
-
-        public string ReturnUrl { get; set; }
-
-
+    
         public virtual Agendamento Agendamento { get; set; }
         public virtual Agendamento Agendamento1 { get; set; }
         public virtual Declaracao Declaracao { get; set; }
@@ -54,6 +43,7 @@ namespace BD
         public virtual Sugestao Sugestao { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Utilizador_Perfil> Utilizador_Perfil { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pedido_Declaracao> Pedido_Declaracao1 { get; set; }
     }
-
 }

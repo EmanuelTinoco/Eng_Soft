@@ -9,6 +9,7 @@ C:\Users\Emanuel Tinoco\source\repos\EG\BD\obj\Debug\BD.csproj.CoreCompileInputs
 C:\Users\Emanuel Tinoco\source\repos\EG\BD\obj\Debug\BD.csproj.CopyComplete
 C:\Users\Emanuel Tinoco\source\repos\EG\BD\obj\Debug\BD.dll
 C:\Users\Emanuel Tinoco\source\repos\EG\BD\obj\Debug\BD.pdb
+C:\Users\Emanuel Tinoco\source\repos\EG\BD\obj\Debug\BD.csprojAssemblyReference.cache
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\bin\Debug\BD.dll.config
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\bin\Debug\BD.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\bin\Debug\BD.pdb
@@ -16,9 +17,7 @@ C:\Users\Rui Meira\Desktop\Eng_Soft\BD\bin\Debug\EntityFramework.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\bin\Debug\EntityFramework.xml
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.csprojAssemblyReference.cache
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.csproj.CoreCompileInputs.cache
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.csproj.CopyComplete
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\BD\obj\Debug\BD.pdb
-C:\Users\Emanuel Tinoco\source\repos\EG\BD\obj\Debug\BD.csprojAssemblyReference.cache

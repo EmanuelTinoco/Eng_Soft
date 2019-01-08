@@ -127,9 +127,6 @@ namespace EG.Controllers
                 // Verification.    
                 if (ModelState.IsValid)
                 {
-                    // Initialization.    
-                    // var info = this.databaseManager.LoginByUsernamePassword(model.Username, model.Password).ToList();
-                    // Verification.    
                     var v = db.Utilizador.Where(a => a.username.Equals(u.username) && a.password.Equals(u.password)).FirstOrDefault();
                     if (v != null)
                     {
@@ -138,32 +135,15 @@ namespace EG.Controllers
                         // Login In.    
                         this.SignInUser(u.username, false);
                         // Info.
-                        IdentidadeUser.AddIdentidadeUser(v.username, v.id.ToString(), Get_Permissions(v.id));
-                        Get_Permissions(v.id);
-                        using(var client = new HttpClient())
-                        {
-                            client.BaseAddress = new Uri("http://localhost:55238/api/");
-                            var data = new
-                            {
-                                Userid = v.id,
-                                Data_Hora_Login = DateTime.Now,
-                                Data_Hora_Logoff = DateTime.Now
-                             };
-
-                            var response = client.PostAsJsonAsync("registos", data);
-                            response.Wait();
-                            char[] delimiterChars = { '"', ':', '{', '}', ',' };
-                            var contentString = response.Result.Content.ReadAsStringAsync().Result;
-                            IdentidadeUser.Change_ID_Registo(int.Parse(contentString.Split(delimiterChars)[4]));
-
-
-                            var result = response.Result;
-                            if (result.IsSuccessStatusCode)
-                            {
-                                Console.WriteLine("sucess");
-                            }
-
-                        }
+                        HttpCookie cookie = new HttpCookie("user");
+                        cookie["id"] = v.id.ToString();
+                        cookie["admin"] = isAdmin(v.id).ToString();
+                        cookie["residente"] = isResidente(v.id).ToString();
+                        cookie["membro"] = isMembro(v.id).ToString();
+                        cookie["id_registo"] = GetIdRegist(v.id).ToString();
+                        Response.Cookies.Add(cookie);
+                        
+                       
                         return this.RedirectToLocal(returnUrl);
                     }
                     else
@@ -183,35 +163,81 @@ namespace EG.Controllers
         }
 
 
-        private bool[] Get_Permissions(int id)
+        private int GetIdRegist(int id)
         {
-            bool[] perm = { false, false, false };
-            var permissions = (from user in db.Utilizador
-                               join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
-                               where user.id == id && user_p.ativo == 1
-                               select new
-                               {
-                                   PERM = user_p.perfil_id
-                               }).Take(4);
-            foreach (var p in permissions)
+            int regist = -1;
+            using (var client = new HttpClient())
             {
-                if (p.PERM == 1)
+                client.BaseAddress = new Uri("http://localhost:55238/api/");
+                var data = new
                 {
-                    perm[0] = true;
-                }
-                if (p.PERM == 2)
-                {
-                    perm[1] = true;
-                }
-                if (p.PERM == 4)
-                {
-                    perm[2] = true;
-                }
+                    Userid = id,
+                    Data_Hora_Login = DateTime.Now,
+                    Data_Hora_Logoff = DateTime.Now
+                };
+
+                var response = client.PostAsJsonAsync("registos", data);
+                response.Wait();
+                char[] delimiterChars = { '"', ':', '{', '}', ',' };
+                var contentString = response.Result.Content.ReadAsStringAsync().Result;
+
+                //adicionar cookie com o valor do id_registo
+                regist = int.Parse(contentString.Split(delimiterChars)[4]);
             }
-
-            return perm;
-
+            return regist;
         }
+
+        private bool isAdmin(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 1
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isResidente(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 2
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isMembro(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 4
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
+
 
 
         /// <summary>  
@@ -417,8 +443,13 @@ namespace EG.Controllers
             if (user != null)
             {
                 this.SignInUser(user.username, false);
-                IdentidadeUser.AddIdentidadeUser(user.username, user.id.ToString(), Get_Permissions(user.id));
-
+                HttpCookie cookie = new HttpCookie("user");
+                cookie["id"] = user.id.ToString();
+                cookie["admin"] = isAdmin(user.id).ToString();
+                cookie["residente"] = isResidente(user.id).ToString();
+                cookie["membro"] = isMembro(user.id).ToString();
+                cookie["id_registo"] = GetIdRegist(user.id).ToString();
+                Response.Cookies.Add(cookie);
                 return this.RedirectToAction("Index", "Home");
             }
             //
@@ -515,8 +546,13 @@ namespace EG.Controllers
 
             this.SignInUser(user.username, false);
             // Info.
-            IdentidadeUser.AddIdentidadeUser(user.username, user.id.ToString(), Get_Permissions(user.id));
-            Get_Permissions(user.id);
+            HttpCookie cookie = new HttpCookie("user");
+            cookie["id"] = user.id.ToString();
+            cookie["admin"] = isAdmin(user.id).ToString();
+            cookie["residente"] = isResidente(user.id).ToString();
+            cookie["membro"] = isMembro(user.id).ToString();
+            cookie["id_registo"] = GetIdRegist(user.id).ToString();
+            Response.Cookies.Add(cookie);
             return this.RedirectToLocal(returnUrl);
 
         }
@@ -539,6 +575,10 @@ namespace EG.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            /*
+             * Talvez crash quando o loggot seja feito quando foi inicializado externamente, criar cookie com id
+             * registo no loggin externo
+             */
             try
             {
                 // Setting.    
@@ -546,26 +586,9 @@ namespace EG.Controllers
                 var authenticationManager = ctx.Authentication;
                 // Sign Out.    
                 authenticationManager.SignOut();
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri("http://localhost:55238/api/");
-                    var data = new
-                    {
-                        Data_Hora_Logoff = DateTime.Now
-                    };
-                    int id = IdentidadeUser.ID_Registo();
-                    string req = "registos/" + id;
-                    var response = client.PutAsJsonAsync(req,data);
-                    response.Wait();
-                    
+                //string gasgjdagj = Request.Cookies["user"].Value;
+                Response.Cookies["cookie"].Expires = DateTime.Now.AddDays(-1);
 
-                    var result = response.Result;
-                    if (result.IsSuccessStatusCode)
-                    {
-                        Console.WriteLine("sucess");
-                    }
-
-                }
             }
             catch (Exception ex)
             {
@@ -574,6 +597,27 @@ namespace EG.Controllers
             }
             // Info.    
             return this.RedirectToAction("Login", "Account");
+        }
+
+        private bool Edit_Regist(int id)
+        {
+            bool b = false;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:55238/api/");
+                //HTTP GET
+                var responseTask = client.GetAsync("registo?id=" + id.ToString());
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    b = true;
+                }
+            }
+
+            return b;
         }
 
         #endregion

@@ -339,11 +339,6 @@
     <Content Include="Views\Utilizador_Perfil\Delete.cshtml" />
     <Content Include="Views\Utilizador_Perfil\Details.cshtml" />
     <Content Include="Views\Utilizador_Perfil\Index.cshtml" />
-    <Content Include="Views\Perfils\Create.cshtml" />
-    <Content Include="Views\Perfils\Delete.cshtml" />
-    <Content Include="Views\Perfils\Details.cshtml" />
-    <Content Include="Views\Perfils\Edit.cshtml" />
-    <Content Include="Views\Perfils\Index.cshtml" />
     <Content Include="Views\Sugestaos\Create.cshtml" />
     <Content Include="Views\Sugestaos\Delete.cshtml" />
     <Content Include="Views\Sugestaos\Details.cshtml" />
@@ -354,11 +349,6 @@
     <Content Include="Views\Agendamentos\Details.cshtml" />
     <Content Include="Views\Agendamentos\Edit.cshtml" />
     <Content Include="Views\Agendamentos\Index.cshtml" />
-    <Content Include="Views\Pedido_Declaracao\Create.cshtml" />
-    <Content Include="Views\Pedido_Declaracao\Delete.cshtml" />
-    <Content Include="Views\Pedido_Declaracao\Details.cshtml" />
-    <Content Include="Views\Pedido_Declaracao\Edit.cshtml" />
-    <Content Include="Views\Pedido_Declaracao\Index.cshtml" />
     <Content Include="Views\Declaracaos\Create.cshtml" />
     <Content Include="Views\Declaracaos\Delete.cshtml" />
     <Content Include="Views\Declaracaos\Details.cshtml" />
@@ -377,6 +367,12 @@
     <Content Include="Views\Utilizadors\EditMyProfile.cshtml" />
     <Content Include="Views\Utilizador_Perfil\Edit.cshtml" />
     <Content Include="Views\Permicoes\Index.cshtml" />
+    <Content Include="Views\Permicoes\Edit.cshtml" />
+    <Content Include="Views\Pedido_Declaracao\Create.cshtml" />
+    <Content Include="Views\Pedido_Declaracao\Delete.cshtml" />
+    <Content Include="Views\Pedido_Declaracao\Details.cshtml" />
+    <Content Include="Views\Pedido_Declaracao\Edit.cshtml" />
+    <Content Include="Views\Pedido_Declaracao\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

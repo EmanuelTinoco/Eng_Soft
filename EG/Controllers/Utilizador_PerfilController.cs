@@ -90,7 +90,7 @@ namespace EG.Controllers
                 HttpNotFound();
                 return null;
             }
-            Permicoes p = new Permicoes(id, isAdmin(id), isResidente(id), isMembro(id));
+            //Permicoes p = new Permicoes(id, isAdmin(id), isResidente(id), isMembro(id));
             return View();
             Utilizador_Perfil user_perfil = db.Utilizador_Perfil.Find(id, 3);//este utilizador tem sempre que existir, porque é nao residente
             user_perfil.admin = ViewBag.admin = isAdmin(id);

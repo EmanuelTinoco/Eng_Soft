@@ -29,6 +29,7 @@
         <AssociationConnector Association="estp2Model.FKReportar_P702547" ManuallyRouted="false" />
         <AssociationConnector Association="estp2Model.FKSugestao143407" ManuallyRouted="false" />
         <AssociationConnector Association="estp2Model.FKUtilizador394182" ManuallyRouted="false" />
+        <AssociationConnector Association="estp2Model.FKPedido_Dec5464101" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

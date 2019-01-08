@@ -18,9 +18,6 @@ namespace BD
         public int perfil_id { get; set; }
         public System.DateTime data { get; set; }
         public int ativo { get; set; }
-        public bool admin { get; set; }
-        public bool residente { get; set; }
-        public bool membro { get; set; }
     
         public virtual Perfil Perfil { get; set; }
         public virtual Utilizador Utilizador { get; set; }

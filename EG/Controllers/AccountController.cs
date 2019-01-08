@@ -186,40 +186,58 @@ namespace EG.Controllers
             }
             return regist;
         }
-        
 
-        
+        private bool isAdmin(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 1
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isResidente(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 2
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isMembro(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 4
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
 
 
-        //private bool[] Get_Permissions(int id)
-        //{
-        //    bool[] perm = { false, false, false };
-        //    var permissions = (from user in db.Utilizador
-        //                       join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
-        //                       where user.id == id && user_p.ativo == 1
-        //                       select new
-        //                       {
-        //                           PERM = user_p.perfil_id
-        //                       }).Take(4);
-        //    foreach (var p in permissions)
-        //    {
-        //        if (p.PERM == 1)
-        //        {
-        //            perm[0] = true;
-        //        }
-        //        if (p.PERM == 2)
-        //        {
-        //            perm[1] = true;
-        //        }
-        //        if (p.PERM == 4)
-        //        {
-        //            perm[2] = true;
-        //        }
-        //    }
 
-        //    return perm;
 
-        //}
 
 
         /// <summary>  

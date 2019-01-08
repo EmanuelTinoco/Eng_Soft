@@ -22,3 +22,15 @@ C:\Users\Emanuel Tinoco\source\repos\EG\API\AtividadeRegisto\Acessos_DB\obj\Debu
 C:\Users\Emanuel Tinoco\source\repos\EG\API\AtividadeRegisto\Acessos_DB\obj\Debug\Acessos_DB.csproj.CopyComplete
 C:\Users\Emanuel Tinoco\source\repos\EG\API\AtividadeRegisto\Acessos_DB\obj\Debug\Acessos_DB.dll
 C:\Users\Emanuel Tinoco\source\repos\EG\API\AtividadeRegisto\Acessos_DB\obj\Debug\Acessos_DB.pdb
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\bin\Debug\Acessos_DB.dll.config
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\bin\Debug\Acessos_DB.dll
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\bin\Debug\Acessos_DB.pdb
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\bin\Debug\EntityFramework.dll
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\bin\Debug\EntityFramework.xml
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\obj\Debug\Acessos_DB.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\obj\Debug\Acessos_DB.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\obj\Debug\Acessos_DB.csproj.CopyComplete
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\obj\Debug\Acessos_DB.dll
+C:\Users\user\source\repos\Eng_Soft\API\AtividadeRegisto\Acessos_DB\obj\Debug\Acessos_DB.pdb

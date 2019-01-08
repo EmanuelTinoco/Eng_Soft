@@ -6,7 +6,6 @@ C:\Users\Emanuel Tinoco\source\repos\EG\IdentidadeManager\obj\Debug\IdentidadeMa
 C:\Users\Emanuel Tinoco\source\repos\EG\IdentidadeManager\obj\Debug\IdentidadeManager.csprojAssemblyReference.cache
 C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\bin\Debug\IdentidadeManager.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\bin\Debug\IdentidadeManager.pdb
-C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.csprojAssemblyReference.cache
 C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.csproj.CoreCompileInputs.cache
 C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.dll
 C:\Users\Rui Meira\Desktop\Eng_Soft\IdentidadeManager\obj\Debug\IdentidadeManager.pdb

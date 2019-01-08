@@ -388,10 +388,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BD\BD.csproj">
-      <Project>{baa1e22b-e08b-4762-b66b-1e9490b35362}</Project>
-      <Name>BD</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IdentidadeManager\IdentidadeManager.csproj">
       <Project>{398e005a-73e7-4404-b3e3-f92bc1d20758}</Project>
       <Name>IdentidadeManager</Name>

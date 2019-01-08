@@ -24,6 +24,7 @@ namespace EG.Controllers
         // GET: Pedido_Declaracao/Details/5
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

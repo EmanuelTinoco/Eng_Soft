@@ -203,16 +203,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AgendamentosController.cs" />
-    <Compile Include="Controllers\DeclaracaosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Pedido_DeclaracaoController.cs" />
     <Compile Include="Controllers\PerfilsController.cs" />
     <Compile Include="Controllers\PermicoesController.cs" />
     <Compile Include="Controllers\RegistoController.cs" />
-    <Compile Include="Controllers\Reportar_ProblemaController.cs" />
-    <Compile Include="Controllers\SugestaosController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
     <Compile Include="Controllers\Utilizador_PerfilController.cs" />
     <Compile Include="Global.asax.cs">

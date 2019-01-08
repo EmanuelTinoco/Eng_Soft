@@ -10,7 +10,6 @@ namespace EG.Controllers
     public class WeatherController : Controller
     {
         
-
         public JsonResult GetWeather(string localidade)
         {
             Weather weath = new Weather();

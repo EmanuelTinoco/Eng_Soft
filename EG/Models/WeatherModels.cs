@@ -11,7 +11,14 @@ namespace EG.Models
     {
         public object getWeather(string localidade)
         {
-            string url = "http://api.openweathermap.org/data/2.5/weather?q=barcelos&APPID=565094e4b43f6f2907e009dee8396c9a&units=metric";
+            if(localidade == null || localidade == "")
+            {
+                return new
+                {
+                    Error = "Can't search for empty location"
+                };
+            }
+            string url = $"http://api.openweathermap.org/data/2.5/weather?q={localidade}&APPID=565094e4b43f6f2907e009dee8396c9a&units=metric";
             var client = new WebClient();
             var content = client.DownloadString(url);
             var serializer = new JavaScriptSerializer();

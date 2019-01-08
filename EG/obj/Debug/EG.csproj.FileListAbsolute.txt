@@ -1,416 +1,139 @@
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\ApplicationInsights.config
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\EG.dll.config
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\EG.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\EG.pdb
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\csc.exe
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\csc.exe.config
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\csc.rsp
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\csi.exe
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\csi.exe.config
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\csi.rsp
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.AppContext.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Console.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.IO.Compression.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.IO.Pipes.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Security.Claims.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.ValueTuple.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Xml.XPath.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\vbc.exe
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\vbc.exe.config
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\vbc.rsp
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\VBCSCompiler.exe
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Antlr3.Runtime.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\BD.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\EntityFramework.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\EntityFramework.SqlServer.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\IdentidadeManager.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.Web.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.ApplicationInsights.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AspNet.TelemetryCorrelation.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Newtonsoft.Json.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Owin.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.Helpers.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.Mvc.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.Optimization.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.Razor.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.WebPages.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.WebPages.Razor.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\WebGrease.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\BD.pdb
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\BD.dll.config
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\IdentidadeManager.pdb
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.Helpers.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.Mvc.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.Optimization.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.Razor.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.WebPages.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Web.WebPages.Razor.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Newtonsoft.Json.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Antlr3.Runtime.pdb
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\EntityFramework.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\EntityFramework.SqlServer.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\System.Diagnostics.DiagnosticSource.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AspNet.TelemetryCorrelation.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.AI.Web.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\System.Web.Helpers.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\System.Web.Mvc.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\System.Web.Optimization.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\System.Web.Razor.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\System.Web.WebPages.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\pt-br\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\obj\Debug\EG.csprojAssemblyReference.cache
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\obj\Debug\EG.csproj.CoreCompileInputs.cache
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\obj\Debug\EG.csproj.CopyComplete
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\obj\Debug\EG.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\obj\Debug\EG.pdb
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\ApplicationInsights.config
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\EG.dll.config
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\EG.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\EG.pdb
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\csc.exe
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\csc.exe.config
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\csc.rsp
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\csi.exe
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\csi.exe.config
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\csi.rsp
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.AppContext.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Console.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.IO.Compression.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.IO.Pipes.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Security.Claims.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.ValueTuple.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Xml.XPath.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\vbc.exe
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\vbc.exe.config
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\vbc.rsp
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\VBCSCompiler.exe
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Antlr3.Runtime.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\BD.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\EntityFramework.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\EntityFramework.SqlServer.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\IdentidadeManager.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.Web.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.ApplicationInsights.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AspNet.TelemetryCorrelation.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Newtonsoft.Json.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Owin.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.Helpers.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.Mvc.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.Optimization.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.Razor.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.WebPages.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.WebPages.Razor.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\WebGrease.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\BD.pdb
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\BD.dll.config
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\IdentidadeManager.pdb
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.Helpers.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.Mvc.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.Optimization.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.Razor.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.WebPages.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Web.WebPages.Razor.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Newtonsoft.Json.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Antlr3.Runtime.pdb
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\EntityFramework.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\EntityFramework.SqlServer.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Diagnostics.DiagnosticSource.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AspNet.TelemetryCorrelation.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.AI.Web.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\System.Web.Helpers.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\System.Web.Mvc.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\System.Web.Optimization.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\System.Web.Razor.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.csprojAssemblyReference.cache
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.csproj.CoreCompileInputs.cache
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.csproj.CopyComplete
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\obj\Debug\EG.pdb
-<<<<<<< HEAD
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Net.Http.Formatting.dll
-C:\Users\Rui Meira\Desktop\Eng_Soft\EG\bin\System.Net.Http.Formatting.xml
-=======
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Facebook.dll
-C:\Users\Emanuel Tinoco\source\repos\EG\EG\bin\Facebook.xml
->>>>>>> 3247a764181c242d62524717d11cf7196d8bba58
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\ApplicationInsights.config
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\EG.dll.config
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\EG.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\EG.pdb
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\csc.exe
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\csc.exe.config
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\csc.rsp
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\csi.exe
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\csi.exe.config
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\csi.rsp
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.AppContext.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Console.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.IO.Compression.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.IO.Pipes.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Security.Claims.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.ValueTuple.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Xml.XPath.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\vbc.exe
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\vbc.exe.config
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\vbc.rsp
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\VBCSCompiler.exe
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Antlr3.Runtime.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\BD.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\EntityFramework.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\EntityFramework.SqlServer.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Facebook.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\IdentidadeManager.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.Web.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.ApplicationInsights.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AspNet.TelemetryCorrelation.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Newtonsoft.Json.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Owin.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Net.Http.Formatting.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.Helpers.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.Mvc.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.Optimization.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.Razor.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.WebPages.Deployment.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.WebPages.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.WebPages.Razor.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\WebGrease.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\BD.pdb
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\BD.dll.config
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\IdentidadeManager.pdb
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Facebook.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Net.Http.Formatting.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.Helpers.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.Mvc.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.Optimization.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.Razor.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.WebPages.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.WebPages.Deployment.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Web.WebPages.Razor.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Newtonsoft.Json.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Antlr3.Runtime.pdb
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\EntityFramework.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\EntityFramework.SqlServer.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\System.Diagnostics.DiagnosticSource.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AspNet.TelemetryCorrelation.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.AI.Web.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\System.Web.Helpers.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\System.Web.Mvc.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\System.Web.Optimization.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\System.Web.Razor.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\obj\Debug\EG.csprojAssemblyReference.cache
-C:\Users\user\Source\Repos\Eng_Soft\EG\obj\Debug\EG.csproj.CoreCompileInputs.cache
-C:\Users\user\Source\Repos\Eng_Soft\EG\obj\Debug\EG.csproj.CopyComplete
-C:\Users\user\Source\Repos\Eng_Soft\EG\obj\Debug\EG.dll
-C:\Users\user\Source\Repos\Eng_Soft\EG\obj\Debug\EG.pdb
+C:\Users\user\source\repos\Eng_Soft\EG\bin\ApplicationInsights.config
+C:\Users\user\source\repos\Eng_Soft\EG\bin\EG.dll.config
+C:\Users\user\source\repos\Eng_Soft\EG\bin\EG.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\EG.pdb
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\csc.exe
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\csc.exe.config
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\csc.rsp
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\csi.exe
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\csi.exe.config
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\csi.rsp
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.AppContext.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Console.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.IO.Compression.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.IO.Pipes.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Security.Claims.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.ValueTuple.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Xml.XPath.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\vbc.exe
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\vbc.exe.config
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\vbc.rsp
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\VBCSCompiler.exe
+C:\Users\user\source\repos\Eng_Soft\EG\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Antlr3.Runtime.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\BD.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\EntityFramework.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\EntityFramework.SqlServer.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Facebook.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\IdentidadeManager.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.Web.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.ApplicationInsights.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Newtonsoft.Json.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Owin.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Net.Http.Formatting.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.Helpers.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.Mvc.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.Optimization.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.Razor.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.WebPages.Deployment.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.WebPages.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.WebPages.Razor.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\WebGrease.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\BD.pdb
+C:\Users\user\source\repos\Eng_Soft\EG\bin\BD.dll.config
+C:\Users\user\source\repos\Eng_Soft\EG\bin\IdentidadeManager.pdb
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Facebook.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Net.Http.Formatting.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.Helpers.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.Mvc.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.Optimization.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.Razor.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.WebPages.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.WebPages.Deployment.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Web.WebPages.Razor.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Newtonsoft.Json.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Antlr3.Runtime.pdb
+C:\Users\user\source\repos\Eng_Soft\EG\bin\EntityFramework.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\EntityFramework.SqlServer.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.AI.Web.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\System.Web.Helpers.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\System.Web.Optimization.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\System.Web.Razor.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\bin\pt-br\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\user\source\repos\Eng_Soft\EG\obj\Debug\EG.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Eng_Soft\EG\obj\Debug\EG.csproj.CopyComplete
+C:\Users\user\source\repos\Eng_Soft\EG\obj\Debug\EG.dll
+C:\Users\user\source\repos\Eng_Soft\EG\obj\Debug\EG.pdb
+C:\Users\user\source\repos\Eng_Soft\EG\obj\Debug\EG.csprojAssemblyReference.cache

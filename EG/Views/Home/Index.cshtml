@@ -10,40 +10,15 @@
         <li>
             @Html.ActionLink("Editar Permissões dos utilizadores", "Index", "Utilizadors")
         </li>
-        <div style="width:50%;overflow:hidden">
-            <div id="inboxHeader">
-                <h2>Weather</h2>
-                <p id="name"></p>
-                <p id="temp"></p>
-                <p id="humidade"></p>
-                Localidade <input type="text" name="fname" id="location" required>
-                <button id="ClimaButton">Ver Clima</button>
 
-            </div>
-        </div>
-        <script>
-            $(document).ready(function () {
-                $("#ClimaButton").click(function () {
-                    var url = '@Url.Action("GetWeather", "Weather", new { localidade = UrlParameter.Optional })';
-                    var locationData = $('#location').val();
-                    console.log(locationData);
-                    if (locationData != null && locationData != "") {
-                        $.get(url + locationData, function (response) {
-                            $("#name").text(response.name);
-                            $("#temp").text(response.main.temp);
-                            $("#humidade").text(response.main.humidity);
-                        });
-                    } else {
-                        alert('Insira a Localidade');
-                    }
-                })
-            });
-        </script>
     }
 
     <li>
         @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")
     </li>
+    <ul class="nav navbar-nav navbar-right">
+        
+    </ul>
     @*<p class="lead">Login from "@User.Identity.Name" Account.</p>
         este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
         este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()

@@ -140,7 +140,7 @@ namespace EG.Controllers
                         cookie["admin"] = isAdmin(v.id).ToString();
                         cookie["residente"] = isResidente(v.id).ToString();
                         cookie["membro"] = isMembro(v.id).ToString();
-                        cookie["id_registo"] = GetIdRegist(v.id).ToString();
+                        //cookie["id_registo"] = GetIdRegist(v.id).ToString();
                         Response.Cookies.Add(cookie);
                         
                        
@@ -163,29 +163,29 @@ namespace EG.Controllers
         }
 
 
-        private int GetIdRegist(int id)
-        {
-            int regist = -1;
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:55238/api/");
-                var data = new
-                {
-                    Userid = id,
-                    Data_Hora_Login = DateTime.Now,
-                    Data_Hora_Logoff = DateTime.Now
-                };
+        //private int GetIdRegist(int id)
+        //{
+        //    int regist = -1;
+        //    using (var client = new HttpClient())
+        //    {
+        //        client.BaseAddress = new Uri("http://localhost:55238/api/");
+        //        var data = new
+        //        {
+        //            Userid = id,
+        //            Data_Hora_Login = DateTime.Now,
+        //            Data_Hora_Logoff = DateTime.Now
+        //        };
 
-                var response = client.PostAsJsonAsync("registos", data);
-                response.Wait();
-                char[] delimiterChars = { '"', ':', '{', '}', ',' };
-                var contentString = response.Result.Content.ReadAsStringAsync().Result;
+        //        var response = client.PostAsJsonAsync("registos", data);
+        //        response.Wait();
+        //        char[] delimiterChars = { '"', ':', '{', '}', ',' };
+        //        var contentString = response.Result.Content.ReadAsStringAsync().Result;
 
-                //adicionar cookie com o valor do id_registo
-                regist = int.Parse(contentString.Split(delimiterChars)[4]);
-            }
-            return regist;
-        }
+        //        //adicionar cookie com o valor do id_registo
+        //        regist = int.Parse(contentString.Split(delimiterChars)[4]);
+        //    }
+        //    return regist;
+        //}
 
         private bool isAdmin(int id)
         {
@@ -448,7 +448,7 @@ namespace EG.Controllers
                 cookie["admin"] = isAdmin(user.id).ToString();
                 cookie["residente"] = isResidente(user.id).ToString();
                 cookie["membro"] = isMembro(user.id).ToString();
-                cookie["id_registo"] = GetIdRegist(user.id).ToString();
+                //cookie["id_registo"] = GetIdRegist(user.id).ToString();
                 Response.Cookies.Add(cookie);
                 return this.RedirectToAction("Index", "Home");
             }
@@ -551,7 +551,7 @@ namespace EG.Controllers
             cookie["admin"] = isAdmin(user.id).ToString();
             cookie["residente"] = isResidente(user.id).ToString();
             cookie["membro"] = isMembro(user.id).ToString();
-            cookie["id_registo"] = GetIdRegist(user.id).ToString();
+            //cookie["id_registo"] = GetIdRegist(user.id).ToString();
             Response.Cookies.Add(cookie);
             return this.RedirectToLocal(returnUrl);
 

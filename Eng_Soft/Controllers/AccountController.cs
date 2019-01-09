@@ -577,7 +577,7 @@ namespace Eng_Soft.Controllers
             cookie["admin"] = isAdmin(user.id).ToString();
             cookie["residente"] = isResidente(user.id).ToString();
             cookie["membro"] = isMembro(user.id).ToString();
-            //cookie["id_registo"] = GetIdRegist(user.id).ToString();
+            cookie["id_registo"] = GetIdRegist(user.id).ToString();
             Response.Cookies.Add(cookie);
             return this.RedirectToLocal(returnUrl);
 

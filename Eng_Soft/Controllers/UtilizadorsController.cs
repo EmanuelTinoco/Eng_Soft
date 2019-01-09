@@ -14,6 +14,14 @@ namespace Eng_Soft.Controllers
     {
         private estp2Entities db = new estp2Entities();
 
+
+        public ActionResult UsersView()
+        {
+            var users = db.Utilizador.ToList();
+            return View(users);
+        }
+
+
         // GET: Utilizadors
         public ActionResult Index()
         {

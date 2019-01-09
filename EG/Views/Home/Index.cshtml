@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "ADO.NET Integration - Home";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class="jumbotron">
     <h1>Welcome</h1>
     @if (Request.Cookies["user"]["admin"] == "True")
@@ -16,16 +17,16 @@
     <li>
         @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")
     </li>
-    
-        <div style="width:100%;overflow:hidden" >
-            <div id="inboxHeader">
-                <h2>Weather</h2>
-                <p id="name"></p>
-                <p id="temp"></p>
-                <p id="humidade"></p>
-                Location: <input type="text" name="fname" id="location" required>
-                <button id="ClimaButton">Ver Clima</button>
-                <script>
+
+    <div style="width:100%;overflow:hidden">
+        <div id="inboxHeader">
+            <h2>Weather</h2>
+            <p id="name"></p>
+            <p id="temp"></p>
+            <p id="humidade"></p>
+            Location: <input type="text" name="fname" id="location" required>
+            <button id="ClimaButton">Ver Clima</button>
+            <script>
             $(document).ready(function () {
                 $("#ClimaButton").click(function () {
                     var url = '@Url.Action("GetWeather", "Weather", new { localidade = UrlParameter.Optional })';
@@ -42,44 +43,44 @@
                     }
                 })
             });
-                </script>
-            </div>
-    </ul>
-    @*<p class="lead">Login from "@User.Identity.Name" Account.</p>
-        este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
-        este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()
-        @if (IdentidadeManager.IdentidadeUser.isAdmin())
-        {
-            <h2>Funcionalidade De Admin</h2>
+            </script>
+        </div>
+        </ul>
+        @*<p class="lead">Login from "@User.Identity.Name" Account.</p>
+            este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
+            este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()
+            @if (IdentidadeManager.IdentidadeUser.isAdmin())
+            {
+                <h2>Funcionalidade De Admin</h2>
+                <li>
+                    @Html.ActionLink("Editar Permissões dos Utilizadoes", "Index", "Utilizadors")
+                </li>
+            }
+
+            <h2>Funcionalidades</h2>
+
             <li>
-                @Html.ActionLink("Editar Permissões dos Utilizadoes", "Index", "Utilizadors")
+                @Html.ActionLink("Editar Dados", "Edit", "Utilizadors")
             </li>
-        }
 
-        <h2>Funcionalidades</h2>
+            <li>
+                @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos")
+            </li>
 
-        <li>
-            @Html.ActionLink("Editar Dados", "Edit", "Utilizadors")
-        </li>
+            <li>
+                @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentos")
+            </li>
 
-        <li>
-            @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos")
-        </li>
+            <li>
+                @Html.ActionLink("Pedido Declaração", "Create", "Pedido_Declaracao")
+            </li>
 
-        <li>
-            @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentos")
-        </li>
+            <li>
+                @Html.ActionLink("Declarações", "Create", "Declaracaos")
+            </li>
 
-        <li>
-            @Html.ActionLink("Pedido Declaração", "Create", "Pedido_Declaracao")
-        </li>
+            <li>
+                @Html.ActionLink("Registos de Login", "Index", "Registo")
+            </li>*@
 
-        <li>
-            @Html.ActionLink("Declarações", "Create", "Declaracaos")
-        </li>
-
-        <li>
-            @Html.ActionLink("Registos de Login", "Index", "Registo")
-        </li>*@
-
-</div>  
+    </div>

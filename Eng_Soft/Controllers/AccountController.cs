@@ -73,6 +73,77 @@ namespace Eng_Soft.Controllers
         public static string OFnome { get; set; }
         public static string OLnome { get; set; }
 
+        /// <summary>  
+        /// GET: /Account/Login    
+        /// </summary>  
+        /// <param name="returnUrl">Return URL parameter</param>  
+        /// <returns>Return login view</returns>  
+        [AllowAnonymous]
+        public ActionResult RecuperarPassWord(string returnUrl)
+        {
+            try
+            {
+                // Verification.    
+                if (this.Request.IsAuthenticated)
+                {
+                    // Info.    
+                    return this.RedirectToLocal(returnUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                Console.Write(ex);
+            }
+            // Info.    
+            return this.View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult RecuperarPassWord(string email, string returnUrl)
+        {
+            try
+            {
+                // Verification.    
+                if (ModelState.IsValid)
+                {
+
+                    var v = db.Utilizador.Where(a => a.email.Equals(email)).FirstOrDefault();
+                    if (v != null)
+                    {
+                        SmtpClient cliente = new SmtpClient("smtp.gmail.com", 587);
+                        cliente.EnableSsl = true;
+                        cliente.UseDefaultCredentials = false;
+                        cliente.Timeout = 50000;
+                        cliente.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        cliente.Credentials = new NetworkCredential("CM.Barcelos.ES@gmail.com", "engenhariasoftwareRED");
+
+                        MailMessage msg = new MailMessage();
+                        msg.To.Add(v.email);
+                        msg.From = new MailAddress("CM.Barcelos.ES@gmail.com");
+                        msg.Subject = "Recuperaçao de email";
+                        msg.Body = ("A sua password de acesso a platafomra da CM Barcelos é: " + v.password);
+                        cliente.Send(msg);
+
+                        return this.View("RecuperarPassWordConfirmacao");
+                    }
+                    else
+                    {
+                        // Setting.    
+                        ModelState.AddModelError(string.Empty, "Email invalido.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                Console.Write(ex);
+            }
+            return this.View();
+        }
+
 
         #region Login methods    
         /// <summary>  

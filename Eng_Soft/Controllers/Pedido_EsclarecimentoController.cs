@@ -39,8 +39,8 @@ namespace Eng_Soft.Controllers
         // GET: Pedido_Esclarecimento/Create
         public ActionResult Create()
         {
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
+            //ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
+            //ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
             return View();
         }
 
@@ -49,10 +49,11 @@ namespace Eng_Soft.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_user,data,descricao,id")] Pedido_Esclarecimento pedido_Esclarecimento)
+        public ActionResult Create([Bind(Include = "data,descricao")] Pedido_Esclarecimento pedido_Esclarecimento)
         {
             if (ModelState.IsValid)
             {
+                pedido_Esclarecimento.id_user = 6;
                 db.Pedido_Esclarecimento.Add(pedido_Esclarecimento);
                 db.SaveChanges();
                 return RedirectToAction("Index");

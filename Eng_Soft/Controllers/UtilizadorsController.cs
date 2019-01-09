@@ -29,6 +29,29 @@ namespace Eng_Soft.Controllers
             return View(utilizador.ToList());
         }
 
+        public ActionResult EditMyProfile()
+        {
+            int id = int.Parse(Request.Cookies["user"]["id"]);
+            Utilizador utilizador = db.Utilizador.Find(id);
+            if (utilizador == null)
+            {
+                return HttpNotFound();
+            }
+            return View(utilizador);
+        }
+
+        [HttpPost]
+        public ActionResult EditMyProfile([Bind(Include = "id,cod_postal,nome,cc,n_eleitor,email,username,password,contacto")] Utilizador utilizador)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(utilizador).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(utilizador);
+        }
+
         // GET: Utilizadors/Details/5
         public ActionResult Details(int? id)
         {

@@ -320,6 +320,9 @@
     <Content Include="Views\Agendamentoes\Index.cshtml" />
     <Content Include="Views\Permicoes\Edit.cshtml" />
     <Content Include="Views\Utilizadors\UsersView.cshtml" />
+    <Content Include="Views\Account\RecuperarPassWord.cshtml" />
+    <Content Include="Views\Account\RecuperarPassWordConfirmacao.cshtml" />
+    <Content Include="Views\Utilizadors\EditMyProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

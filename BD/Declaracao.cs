@@ -6,11 +6,13 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel;
+using System.Web;
+using System.Web.Abstractions;
 
 namespace BD
 {
-    using System;
-    using System.Collections.Generic;
+    
     
     public partial class Declaracao
     {
@@ -19,7 +21,7 @@ namespace BD
         public System.DateTime data { get; set; }
         public string descricao { get; set; }
         public int id { get; set; }
-    
+
         public virtual Utilizador Utilizador { get; set; }
     }
 }

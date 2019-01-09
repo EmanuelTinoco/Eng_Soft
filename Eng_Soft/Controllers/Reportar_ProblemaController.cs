@@ -17,50 +17,41 @@ namespace Eng_Soft.Controllers
         // GET: Reportar_Problema
         public ActionResult Index()
         {
-            var reportar_Problema = db.Reportar_Problema.Include(r => r.Utilizador).Include(r => r.Utilizador1);
-            return View(reportar_Problema.ToList());
+            int id = int.Parse(Request.Cookies["user"]["id"]);
+            var problema = db.Reportar_Problema.Where(p => p.id_user == id);
+            return View(problema.ToList());
         }
 
-        // GET: Reportar_Problema/Details/5
-        public ActionResult Details(int? id)
+        // GET: Declaracaos/Create
+        public ActionResult Create()//adicionar id e assinar ao valor de r
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Reportar_Problema reportar_Problema = db.Reportar_Problema.Find(id);
-            if (reportar_Problema == null)
-            {
-                return HttpNotFound();
-            }
-            return View(reportar_Problema);
+            Reportar_Problema r = new Reportar_Problema();
+            r.id_user = int.Parse(Response.Cookies["cookie"]["id"]);
+            return View(r);
         }
 
-        // GET: Reportar_Problema/Create
-        public ActionResult Create()
-        {
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
-            return View();
-        }
-
-        // POST: Reportar_Problema/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_user,status,descricao,localizacao,id,foto")] Reportar_Problema reportar_Problema)
+        public ActionResult Create(Reportar_Problema model, HttpPostedFileBase file1)
         {
-            if (ModelState.IsValid)
+            if (file1 != null)
             {
-                db.Reportar_Problema.Add(reportar_Problema);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                model.foto = new byte[file1.ContentLength];
+                file1.InputStream.Read(model.foto, 0, file1.ContentLength);
 
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", reportar_Problema.id_user);
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", reportar_Problema.id_user);
-            return View(reportar_Problema);
+            }
+            db.Reportar_Problema.Add(model);
+            db.SaveChanges();
+            return View(model);
+        }
+
+        [HttpGet]
+        public FileResult Download(int id)
+        {
+            var file = (from d in db.Reportar_Problema
+                        where d.id == id
+                        select new { d.descricao, d.foto }).ToList().FirstOrDefault();
+            byte[] fileBytes = file.foto;
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, file.descricao);
         }
 
         // GET: Reportar_Problema/Edit/5

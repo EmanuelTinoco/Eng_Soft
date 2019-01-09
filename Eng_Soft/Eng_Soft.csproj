@@ -320,6 +320,7 @@
     <Content Include="Views\Agendamentoes\Edit.cshtml" />
     <Content Include="Views\Agendamentoes\Index.cshtml" />
     <Content Include="Views\Permicoes\Edit.cshtml" />
+    <Content Include="Views\Utilizadors\UsersView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

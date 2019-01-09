@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BD.Utilizador>
+﻿@Model IEnumerable<BD.Utilizador>
+
 
 @{
     ViewBag.Title = "ADO.NET Integration - Home";
@@ -11,10 +12,22 @@
             @Html.ActionLink("Editar Permissões dos utilizadores", "Index", "Utilizadors")
         </li>
     }
-
+    @* Funcionalidades como funcionario *@
+    <li>
+            @Html.ActionLink("Ver Utilizadores", "UsersView", "Utilizadors")
+    </li>
+    @if (Request.Cookies["user"]["membro"] == "True")
+    {
+        
+    }
     <li>
         @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")
     </li>
+    <li>
+        @Html.ActionLink("Ver minhas declarações", "Index", "Declaracaos")
+    </li>
+    
+
     @*<p class="lead">Login from "@User.Identity.Name" Account.</p>
         este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
         este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()

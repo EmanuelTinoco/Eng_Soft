@@ -21,7 +21,6 @@ namespace BD
         public System.DateTime data { get; set; }
         public string descricao { get; set; }
         public int id { get; set; }
-
         public virtual Utilizador Utilizador { get; set; }
     }
 }

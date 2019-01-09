@@ -12,11 +12,13 @@
             @Html.ActionLink("Editar Permissões dos utilizadores", "Index", "Utilizadors")
         </li>
     }
+    @* Funcionalidades como funcionario *@
+    <li>
+            @Html.ActionLink("Ver Utilizadores", "UsersView", "Utilizadors")
+    </li>
     @if (Request.Cookies["user"]["membro"] == "True")
     {
-        <li>
-            @Html.ActionLink("Ver Utilizadores", "UsersView", "Utilizadors")
-        </li>
+        
     }
     <li>
         @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")

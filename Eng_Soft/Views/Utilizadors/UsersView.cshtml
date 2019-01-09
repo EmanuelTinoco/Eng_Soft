@@ -15,19 +15,10 @@
             @Html.DisplayNameFor(model => model.nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.n_eleitor)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.password)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.contacto)
@@ -44,19 +35,10 @@
             @Html.DisplayFor(modelItem => item.nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.n_eleitor)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.email)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.password)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.contacto)
@@ -65,9 +47,7 @@
             @Html.DisplayFor(modelItem => item.Freguesia.nome)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Upload declaração", "Create", "Declaracaos", new { id = item.id}, null)
         </td>
     </tr>
 }

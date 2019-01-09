@@ -19,6 +19,7 @@ namespace Eng_Soft
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.Name;
+            //a nice comment
         }
     }
 }

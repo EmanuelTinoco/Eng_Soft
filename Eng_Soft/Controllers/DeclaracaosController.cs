@@ -40,10 +40,11 @@ namespace Eng_Soft.Controllers
         
 
         // GET: Declaracaos/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
             Declaracao d = new Declaracao();
-            d.id_user = int.Parse(Response.Cookies["cookie"]["id"]);
+            d.id_user = id;
+            //d.id_user = int.Parse(Response.Cookies["cookie"]["id"]);
             return View(d);
         }
 

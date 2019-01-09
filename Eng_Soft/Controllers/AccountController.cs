@@ -610,14 +610,37 @@ namespace Eng_Soft.Controllers
             }
         }
         #endregion
-        //
-        // POST: /Account/LogOff
+
+        /// <summary>  
+        /// POST: /Account/LogOff    
+        /// </summary>  
+        /// <returns>Return log off action</returns>  
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            /*
+             * Talvez crash quando o loggot seja feito quando foi inicializado externamente, criar cookie com id
+             * registo no loggin externo
+             */
+            try
+            {
+                // Setting.    
+                var ctx = Request.GetOwinContext();
+                var authenticationManager = ctx.Authentication;
+                // Sign Out.    
+                authenticationManager.SignOut();
+                //string gasgjdagj = Request.Cookies["user"].Value;
+                Response.Cookies["cookie"].Expires = DateTime.Now.AddDays(-1);
+
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                throw ex;
+            }
+            // Info.    
+            return this.RedirectToAction("Login", "Account");
         }
 
         //

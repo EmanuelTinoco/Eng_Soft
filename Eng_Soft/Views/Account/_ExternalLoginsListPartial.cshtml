@@ -1,11 +1,15 @@
 ﻿@model Eng_Soft.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
 <h4>Use another service to log in.</h4>
 <hr />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-    if (loginProviders.Count() == 0) {
+    if (loginProviders.Count() == 0)
+    {
         <div>
             <p>
                 There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
@@ -13,12 +17,15 @@
             </p>
         </div>
     }
-    else {
-        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+    else
+    {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+        {
             @Html.AntiForgeryToken()
             <div id="socialLoginList">
                 <p>
-                    @foreach (AuthenticationDescription p in loginProviders) {
+                    @foreach (AuthenticationDescription p in loginProviders)
+                    {
                         <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
                     }
                 </p>
@@ -26,3 +33,32 @@
         }
     }
 }
+
+<div style="width:50%;overflow:hidden">
+    <div id="inboxHeader">
+        <h2>Weather</h2>
+        <p id="name"></p>
+        <p id="temp"></p>
+        <p id="humidade"></p>
+        Location: <input type="text" name="fname" id="location" required>
+        <button id="ClimaButton">Ver Clima</button>
+        <script>
+            $(document).ready(function () {
+                $("#ClimaButton").click(function () {
+                    var url = '@Url.Action("GetWeather", "Weather", new { localidade = UrlParameter.Optional })';
+                    var locationData = $('#location').val();
+                    console.log(locationData);
+                    if (locationData != null && locationData != "") {
+                        $.get(url + locationData, function (response) {
+                            $("#name").text(response.name);
+                            $("#temp").text(response.main.temp);
+                            $("#humidade").text(response.main.humidity);
+                        });
+                    } else {
+                        alert('Insira a Localidade');
+                    }
+                })
+            });
+        </script>
+    </div>
+</div>

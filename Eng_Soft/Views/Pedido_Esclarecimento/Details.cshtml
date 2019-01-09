@@ -1,0 +1,50 @@
+﻿@model BD.Pedido_Esclarecimento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pedido_Esclarecimento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilizador.cod_postal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilizador.cod_postal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilizador1.cod_postal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilizador1.cod_postal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

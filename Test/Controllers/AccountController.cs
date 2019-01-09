@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -9,6 +10,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Test.Models;
+using Microsoft.Owin.Security.Facebook;
+using Facebook;
 
 namespace Test.Controllers
 {
@@ -51,6 +54,12 @@ namespace Test.Controllers
                 _userManager = value;
             }
         }
+
+        public static string EconfUser { get; set; }
+        public static string OEmail { get; set; }
+        public static string ODataNascimento { get; set; }
+        public static string OFnome { get; set; }
+        public static string OLnome { get; set; }
 
         //
         // GET: /Account/Login
@@ -317,33 +326,104 @@ namespace Test.Controllers
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
-        //
         // GET: /Account/ExternalLoginCallback
+        [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
+        public async Task<ActionResult> ExternalLoginCallback(string returnUrl = null)
         {
-            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
-            if (loginInfo == null)
-            {
-                return RedirectToAction("Login");
-            }
 
-            // Sign in the user with this external login provider if the user already has a login
-            var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
-            switch (result)
+            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+            if (info == null)
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
-                case SignInStatus.Failure:
-                default:
-                    // If the user does not have an account, then prompt the user to create an account
-                    ViewBag.ReturnUrl = returnUrl;
-                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                return RedirectToAction("Index", "Home");
+            }
+            string userproKey = info.Login.ProviderKey;
+
+            //Procuro na BD se o user ja eiste
+            var user = db.Utilizador.Where(a => a.email.Equals(info.Email.ToString()) && a.password.Equals(info.Login.ProviderKey.ToString())).FirstOrDefault();
+            //se Exisitir entra
+            if (user != null)
+            {
+                this.SignInUser(user.username, false);
+                HttpCookie cookie = new HttpCookie("user");
+                cookie["id"] = user.id.ToString();
+                cookie["admin"] = isAdmin(user.id).ToString();
+                cookie["residente"] = isResidente(user.id).ToString();
+                cookie["membro"] = isMembro(user.id).ToString();
+                cookie["id_registo"] = GetIdRegist(user.id).ToString();
+                Response.Cookies.Add(cookie);
+                return this.RedirectToAction("Index", "Home");
+            }
+            //
+            else
+            {
+                ViewBag.ReturnUrl = returnUrl;
+                ViewBag.LoginProvider = info.Login.LoginProvider;
+
+                if (info.Login.LoginProvider == "Google")
+                {
+                    OEmail = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email).Value;
+                    //OFnome = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == "https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenName").Value;
+                    //OLnome = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == "https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
+                }
+
+                else if (info.Login.LoginProvider == "Facebook")
+                {
+                    var identity = AuthenticationManager.GetExternalIdentity(DefaultAuthenticationTypes.ExternalCookie);
+                    var access_token = identity.FindFirstValue("FacebookAccessToken");
+                    var fb = new FacebookClient(access_token);
+
+
+
+                    //dynamic me = fb.Get("me");
+                    //string firstName = me.first_name;
+                    //string lastName = me.last_name;
+                    //string email = me.email;
+
+                    //dynamic uEmail = fb.Get("/m?fields=email");
+                    //dynamic uNome = fb.Get("/m?fields=first_name");
+                    //dynamic uApelido = fb.Get("/m?fields=last_name");
+
+                    OEmail = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email).Value;
+                    OFnome = info.ExternalIdentity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName).Value;
+                    //OFnome = firstName;
+                    //OLnome = lastName;
+
+                }
+                else
+                {
+                    OEmail = null;
+                    OFnome = null;
+                    OLnome = null;
+                }
+                return View("ExternalLoginConfirmation");
+            }
+        }
+
+        /// <summary>  
+        /// Sign In User method.    
+        /// </summary>  
+        /// <param name="username">Username parameter.</param>  
+        /// <param name="isPersistent">Is persistent parameter.</param>  
+        private void SignInUser(string username, bool isPersistent)
+        {
+            // Initialization.    
+            var claims = new List<Claim>();
+            try
+            {
+                // Setting    
+                claims.Add(new Claim(ClaimTypes.Name, username));
+
+                var claimIdenties = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
+                var ctx = Request.GetOwinContext();
+                var authenticationManager = ctx.Authentication;
+                // Sign In.    
+                authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, claimIdenties);
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                throw ex;
             }
         }
 
@@ -359,30 +439,59 @@ namespace Test.Controllers
                 return RedirectToAction("Index", "Manage");
             }
 
-            if (ModelState.IsValid)
+            // Obter as informações sobre o usuário do provedor de logon externo
+            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+
+            if (info == null)
             {
-                // Get the information about the user from the external login provider
-                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-                if (info == null)
-                {
-                    return View("ExternalLoginFailure");
-                }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user);
-                if (result.Succeeded)
-                {
-                    result = await UserManager.AddLoginAsync(user.Id, info.Login);
-                    if (result.Succeeded)
-                    {
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
-                    }
-                }
-                AddErrors(result);
+                return View("ExternalLoginFailure");
             }
 
-            ViewBag.ReturnUrl = returnUrl;
-            return View(model);
+            var user = new Utilizador
+            {
+                password = info.Login.ProviderKey,
+                email = info.Email,
+                username = info.DefaultUserName.ToString(),
+                cc = model.cc,
+                nome = model.nome,
+                n_eleitor = model.n_eleitor,
+                contacto = model.contacto,
+                cod_postal = "4720"
+
+            };
+
+            int perfil_id = 3;
+
+            if (user.cod_postal.Equals("Amares"))
+            {
+                perfil_id = 2;
+            }
+
+            db.Utilizador.Add(user);
+            //Utilizador_PerfilController.adiciona(user.id, perfil_id);
+
+            db.SaveChanges();
+
+
+            this.SignInUser(user.username, false);
+            // Info.
+            HttpCookie cookie = new HttpCookie("user");
+            cookie["id"] = user.id.ToString();
+            cookie["admin"] = isAdmin(user.id).ToString();
+            cookie["residente"] = isResidente(user.id).ToString();
+            cookie["membro"] = isMembro(user.id).ToString();
+            cookie["id_registo"] = GetIdRegist(user.id).ToString();
+            Response.Cookies.Add(cookie);
+            return this.RedirectToLocal(returnUrl);
+
+        }
+
+
+        // GET: /Account/ExternalLoginFailure
+        [AllowAnonymous]
+        public ActionResult ExternalLoginFailure()
+        {
+            return View();
         }
 
         //

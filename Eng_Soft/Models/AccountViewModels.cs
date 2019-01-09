@@ -6,9 +6,26 @@ namespace Eng_Soft.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "Codigo Postal:")]
+        public string cod_postal { get; set; }
+
+        [Required]
+        [Display(Name = "Nome Completo:")]
+        public string nome { get; set; }
+
+        [Required]
+        [Display(Name = "Numero Cartao Cidadao:")]
+        public string cc { get; set; }
+
+        [Required]
+        [Display(Name = "Numero Cartao Eleitor:")]
+        public string n_eleitor { get; set; }
+
+        [Required]
+        [Display(Name = "Contacto:")]
+        public int contacto { get; set; }
     }
+
 
     public class ExternalLoginListViewModel
     {

@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Eng_Soft.Models;
+using System.Configuration;
+using Microsoft.Owin.Security.Facebook;
 
 namespace Eng_Soft
 {
@@ -63,6 +65,50 @@ namespace Eng_Soft
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            var googleAuthenticationOptions = new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = ConfigurationManager.AppSettings["GglI"],
+                ClientSecret = ConfigurationManager.AppSettings["GglS"],
+                Provider = new GoogleOAuth2AuthenticationProvider()
+                {
+                    OnAuthenticated = async context =>
+                    {
+                        context.Identity.AddClaim(new System.Security.Claims.Claim("GoogleAccessToken", context.AccessToken));
+
+                        foreach (var claim in context.User)
+                        {
+                            var claimType = string.Format("urn:Google:{0}", claim.Key);
+                            string claymValue = claim.Value.ToString();
+                            if (!context.Identity.HasClaim(claimType, claymValue))
+                            {
+                                context.Identity.AddClaim(new System.Security.Claims.Claim(claimType, claymValue, "XmlSchemaString", "Google"));
+                            }
+                        }
+                    }
+                }
+            };
+            googleAuthenticationOptions.Scope.Add("https://www.googleapis.com/auth/plus.login email");
+            app.UseGoogleAuthentication(googleAuthenticationOptions);
+
+            var facebookAuthenticationOptions = new FacebookAuthenticationOptions()
+            {
+                AppId = ConfigurationManager.AppSettings["FaCI"],
+                AppSecret = ConfigurationManager.AppSettings["FaCS"],
+
+                Provider = new FacebookAuthenticationProvider()
+                {
+                    OnAuthenticated = async context =>
+                    {
+                        context.Identity.AddClaim(new System.Security.Claims.Claim("FacebookAccessToken", context.AccessToken));
+                    }
+                }
+            };
+
+            facebookAuthenticationOptions.Scope.Add("public_profile");
+            facebookAuthenticationOptions.Scope.Add("email");
+            app.UseFacebookAuthentication(facebookAuthenticationOptions);
+
         }
     }
 }

@@ -33,3 +33,4 @@ C:\Users\user\source\repos\Eng_Soft\BD\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\user\source\repos\Eng_Soft\BD\obj\Debug\BD.csproj.CopyComplete
 C:\Users\user\source\repos\Eng_Soft\BD\obj\Debug\BD.dll
 C:\Users\user\source\repos\Eng_Soft\BD\obj\Debug\BD.pdb
+C:\Users\user\source\repos\Eng_Soft\BD\obj\Debug\BD.csprojAssemblyReference.cache

@@ -13,9 +13,11 @@ using BD;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNet.Identity.EntityFramework;
+
 using System.Net;
 using System.Net.Mail;
 
+using Facebook;
 using System.Net.Http;
 
 using Newtonsoft.Json;
@@ -72,43 +74,81 @@ namespace Eng_Soft.Controllers
         public static string OLnome { get; set; }
 
 
-        //
-        // GET: /Account/Login
+        #region Login methods    
+        /// <summary>  
+        /// GET: /Account/Login    
+        /// </summary>  
+        /// <param name="returnUrl">Return URL parameter</param>  
+        /// <returns>Return login view</returns>  
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            try
+            {
+                // Verification.    
+                if (this.Request.IsAuthenticated)
+                {
+                    // Info.    
+                    return this.RedirectToLocal(returnUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                Console.Write(ex);
+            }
+            // Info.    
+            return this.View();
         }
-
-        //
-        // POST: /Account/Login
+        /// <summary>  
+        /// POST: /Account/Login    
+        /// </summary>  
+        /// <param name="model">Model parameter</param>  
+        /// <param name="returnUrl">Return URL parameter</param>  
+        /// <returns>Return login view</returns>  
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(Utilizador u, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(model);
-            }
+                // Verification.    
+                if (ModelState.IsValid)
+                {
+                    var v = db.Utilizador.Where(a => a.username.Equals(u.username) && a.password.Equals(u.password)).FirstOrDefault();
+                    if (v != null)
+                    {
+                        // Initialization.    
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                        // Login In.    
+                        this.SignInUser(u.username, false);
+                        // Info.
+                        HttpCookie cookie = new HttpCookie("user");
+                        cookie["id"] = v.id.ToString();
+                        cookie["admin"] = isAdmin(v.id).ToString();
+                        cookie["residente"] = isResidente(v.id).ToString();
+                        cookie["membro"] = isMembro(v.id).ToString();
+                        cookie["id_registo"] = GetIdRegist(v.id).ToString();
+                        Response.Cookies.Add(cookie);
+
+
+                        return this.RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        // Setting.    
+                        ModelState.AddModelError(string.Empty, "Username ou password errado.");
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                // Info    
+                Console.Write(ex);
+            }
+            // If we got this far, something failed, redisplay form    
+            return this.View(u);
         }
 
         //
@@ -209,6 +249,32 @@ namespace Eng_Soft.Controllers
             }
             return true;
         }
+
+        private int GetIdRegist(int id)
+        {
+            int regist = -1;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:55238/api/");
+                var data = new
+                {
+                    Userid = id,
+                    Data_Hora_Login = DateTime.Now,
+                    Data_Hora_Logoff = DateTime.Now
+                };
+
+                var response = client.PostAsJsonAsync("registos", data);
+                response.Wait();
+                char[] delimiterChars = { '"', ':', '{', '}', ',' };
+                var contentString = response.Result.Content.ReadAsStringAsync().Result;
+
+                //adicionar cookie com o valor do id_registo
+                regist = int.Parse(contentString.Split(delimiterChars)[4]);
+            }
+            return regist;
+        }
+
+
         //
         // POST: /Account/Register
         [HttpPost]
@@ -543,7 +609,7 @@ namespace Eng_Soft.Controllers
                 throw ex;
             }
         }
-
+        #endregion
         //
         // POST: /Account/LogOff
         [HttpPost]

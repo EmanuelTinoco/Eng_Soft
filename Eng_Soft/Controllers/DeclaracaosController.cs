@@ -14,16 +14,10 @@ namespace Eng_Soft.Controllers
     {
         private estp2Entities db = new estp2Entities();
 
-        //// GET: Declaracaos
-        //public ActionResult Index()
-        //{
-        //    var declaracao = db.Declaracao.Include(d => d.Utilizador);
-        //    return View(declaracao.ToList());
-        //}
-
-        public ActionResult Index(int ?id)
+        
+        public ActionResult Index()
         {
-            id = 6;
+            int id = int.Parse(Request.Cookies["user"]["id"]);
             var dec = db.Declaracao.Where(d => d.id_user == id);
             return View(dec.ToList());
         }
@@ -49,7 +43,7 @@ namespace Eng_Soft.Controllers
         public ActionResult Create()
         {
             Declaracao d = new Declaracao();
-            //ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
+            d.id_user = int.Parse(Response.Cookies["cookie"]["id"]);
             return View(d);
         }
 
@@ -58,7 +52,6 @@ namespace Eng_Soft.Controllers
         {
             if (file1 != null)
             {
-                model.id_user = 6; //para testar
                 model.data = DateTime.Now;
                 model.ficheiro = new byte[file1.ContentLength];
                 file1.InputStream.Read(model.ficheiro, 0, file1.ContentLength);

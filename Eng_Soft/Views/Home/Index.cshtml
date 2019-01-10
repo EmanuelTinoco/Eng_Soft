@@ -28,6 +28,9 @@
         <li>
             @Html.ActionLink("Ver Utilizadores", "UsersView", "Utilizadors")
         </li>
+        <li>
+            @Html.ActionLink("Ver Problemas Reportados", "Index", "Reportar_Problema")
+        </li>
 
         <br />
     }
@@ -38,9 +41,17 @@
         <li>
             @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentoes", new { id = int.Parse(Request.Cookies["user"]["id"]) }, null)
         </li>
-
+        
         <br/>
     }
+
+        <h2>Funcionalidades Gerais</h2>
+    <li>
+        @Html.ActionLink("Reportar Problema", "Create", "Reportar_Problema", new { id = int.Parse(Request.Cookies["user"]["id"])},null)
+    </li>
+    <li>
+
+    </li>
 
     <li>
         @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")

@@ -17,16 +17,14 @@ namespace Eng_Soft.Controllers
         // GET: Reportar_Problema
         public ActionResult Index()
         {
-            int id = int.Parse(Request.Cookies["user"]["id"]);
-            var problema = db.Reportar_Problema.Where(p => p.id_user == id);
-            return View(problema.ToList());
+            return View(db.Reportar_Problema.ToList());
         }
 
         // GET: Declaracaos/Create
-        public ActionResult Create()//adicionar id e assinar ao valor de r
+        public ActionResult Create(int id)//adicionar id e assinar ao valor de r
         {
             Reportar_Problema r = new Reportar_Problema();
-            r.id_user = int.Parse(Response.Cookies["cookie"]["id"]);
+            r.id_user = id;
             return View(r);
         }
 
@@ -35,6 +33,8 @@ namespace Eng_Soft.Controllers
         {
             if (file1 != null)
             {
+                model.id_user = int.Parse(Request.Cookies["user"]["id"]);
+                model.status = 0;
                 model.foto = new byte[file1.ContentLength];
                 file1.InputStream.Read(model.foto, 0, file1.ContentLength);
 
@@ -66,8 +66,6 @@ namespace Eng_Soft.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", reportar_Problema.id_user);
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", reportar_Problema.id_user);
             return View(reportar_Problema);
         }
 

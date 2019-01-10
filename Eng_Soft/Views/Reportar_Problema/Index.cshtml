@@ -6,9 +6,6 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -36,7 +33,8 @@
         </td>
         
         <td>
-            @Html.ActionLink("Download", "Download", new { id = item.id })
+            @Html.ActionLink("Download", "Download", new { id = item.id }) |
+            @Html.ActionLink("Editar Estado do Problema", "Edit", new { id = item.id })
         </td>
     </tr>
 }

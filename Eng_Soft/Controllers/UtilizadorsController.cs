@@ -13,7 +13,7 @@ namespace Eng_Soft.Controllers
     public class UtilizadorsController : Controller
     {
         private estp2Entities db = new estp2Entities();
-
+        
 
         public ActionResult UsersView()
         {

@@ -37,16 +37,13 @@ namespace Eng_Soft.Controllers
         }
 
         // GET: Agendamentoes/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
-            return View();
+            Agendamento a = new Agendamento();
+            a.id_user = id;
+            return View(a);
         }
 
-        // POST: Agendamentoes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id_user,data,objetivo,id")] Agendamento agendamento)
@@ -55,48 +52,12 @@ namespace Eng_Soft.Controllers
             {
                 db.Agendamento.Add(agendamento);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home",null);
             }
 
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", agendamento.id_user);
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", agendamento.id_user);
             return View(agendamento);
         }
-
-        // GET: Agendamentoes/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Agendamento agendamento = db.Agendamento.Find(id);
-            if (agendamento == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", agendamento.id_user);
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", agendamento.id_user);
-            return View(agendamento);
-        }
-
-        // POST: Agendamentoes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_user,data,objetivo,id")] Agendamento agendamento)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(agendamento).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", agendamento.id_user);
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", agendamento.id_user);
-            return View(agendamento);
-        }
+        
 
         // GET: Agendamentoes/Delete/5
         public ActionResult Delete(int? id)
@@ -122,6 +83,7 @@ namespace Eng_Soft.Controllers
             db.Agendamento.Remove(agendamento);
             db.SaveChanges();
             return RedirectToAction("Index");
+            
         }
 
         protected override void Dispose(bool disposing)

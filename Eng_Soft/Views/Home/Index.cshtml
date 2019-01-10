@@ -1,5 +1,5 @@
-﻿@Model IEnumerable<BD.Utilizador>
-
+﻿@model IEnumerable<BD.Utilizador>
+@using Eng_Soft.Controllers
 
 @{
     ViewBag.Title = "ADO.NET Integration - Home";
@@ -8,18 +8,40 @@
     <h1>Welcome</h1>
     @if (Request.Cookies["user"]["admin"] == "True")
     {
+        <h2>Funcionalidade de Administrador</h2>
+
         <li>
             @Html.ActionLink("Editar Permissões dos utilizadores", "Index", "Utilizadors")
         </li>
+
+        <br />
     }
-    @* Funcionalidades como funcionario *@
-    <li>
-            @Html.ActionLink("Ver Utilizadores", "UsersView", "Utilizadors")
-    </li>
+
+
     @if (Request.Cookies["user"]["membro"] == "True")
     {
-        
+        <h2>Funcionalidade de Membro da Junta de Freguesia</h2>
+
+        <li>
+            @Html.ActionLink("Ver Agendamentos", "Index", "Agendamentoes")
+        </li>
+        <li>
+            @Html.ActionLink("Ver Utilizadores", "UsersView", "Utilizadors")
+        </li>
+
+        <br />
     }
+
+    @if(Request.Cookies["user"]["residente"] == "True")
+    {
+        <h2>Funcionalidades como Residente</h2>
+        <li>
+            @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentoes", new { id = int.Parse(Request.Cookies["user"]["id"]) }, null)
+        </li>
+
+        <br/>
+    }
+
     <li>
         @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")
     </li>
@@ -27,10 +49,10 @@
         @Html.ActionLink("Ver minhas declarações", "Index", "Declaracaos")
     </li>
 
-     <li>
+    <li>
         @Html.ActionLink("Pedidos de Esclarecimento", "Create", "Pedido_Esclarecimento")
     </li>
-    
+
 
     @*<p class="lead">Login from "@User.Identity.Name" Account.</p>
         este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()

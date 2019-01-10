@@ -13,7 +13,9 @@
         <li>
             @Html.ActionLink("Editar Permissões dos utilizadores", "Index", "Utilizadors")
         </li>
-
+        <li>
+            @Html.ActionLink("Ver Utilizadores", "UsersView", "Utilizadors")
+        </li>
         <br />
     }
 
@@ -25,9 +27,7 @@
         <li>
             @Html.ActionLink("Ver Agendamentos", "Index", "Agendamentoes")
         </li>
-        <li>
-            @Html.ActionLink("Ver Utilizadores", "UsersView", "Utilizadors")
-        </li>
+
         <li>
             @Html.ActionLink("Ver Problemas Reportados", "Index", "Reportar_Problema")
         </li>
@@ -35,7 +35,7 @@
             @Html.ActionLink("Ver Pedidos de Declaração", "Index", "Pedido_Declaracao")
         </li>
         <li>
-            @Html.ActionLink("Informações úteis", "Index", "Notifcacaos")
+            @Html.ActionLink("Criar Informações úteis", "Index", "Notifcacaos")
         </li>
         <br />
     }
@@ -68,46 +68,10 @@
         @Html.ActionLink("Enviar Sugestão", "Create", "Sugestaos")
     </li>
     <li>
-        @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")
+        @Html.ActionLink("Editar Os meus dados", "Edit", "Utilizadors")
     </li>
     <li>
         @Html.ActionLink("Registos de Login", "Index", "Registo")
     </li>
-
-
-    @*<p class="lead">Login from "@User.Identity.Name" Account.</p>
-        este e o meu nome? @IdentidadeManager.IdentidadeUser.GetNome()
-        este e o meu nome? @IdentidadeManager.IdentidadeUser.GetId()
-        @if (IdentidadeManager.IdentidadeUser.isAdmin())
-        {
-            <h2>Funcionalidade De Admin</h2>
-            <li>
-                @Html.ActionLink("Editar Permissões dos Utilizadoes", "Index", "Utilizadors")
-            </li>
-        }
-
-        <h2>Funcionalidades</h2>
-
-        <li>
-            @Html.ActionLink("Editar Dados", "Edit", "Utilizadors")
-        </li>
-
-        <li>
-            @Html.ActionLink("Criar Sugestão", "Create", "Sugestaos")
-        </li>
-
-        <li>
-            @Html.ActionLink("Fazer Agendamento", "Create", "Agendamentos")
-        </li>
-
-        <li>
-            @Html.ActionLink("Pedido Declaração", "Create", "Pedido_Declaracao")
-        </li>
-
-        <li>
-            @Html.ActionLink("Declarações", "Create", "Declaracaos")
-        </li>
-
-    *@
 
 </div>  

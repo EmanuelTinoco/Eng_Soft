@@ -4,11 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Agendamentos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -26,24 +23,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utilizador.nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utilizador.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.objetivo)
-        </td>
-        <td>
-            @Html.ActionLink("Cancelar Agendamento", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilizador.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilizador.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.objetivo)
+            </td>
+            <td>
+                @Html.ActionLink("Cancelar Agendamento", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@Html.ActionLink("Voltar", "Index","Home")

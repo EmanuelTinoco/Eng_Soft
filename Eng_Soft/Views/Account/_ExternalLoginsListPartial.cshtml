@@ -1,6 +1,11 @@
 ﻿@model Eng_Soft.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
 <h4>Use another service to log in.</h4>
 <hr />
 @{
@@ -26,3 +31,33 @@
         }
     }
 }
+
+            <div style="width:50%;overflow:hidden">
+                <div id="inboxHeader">
+                    <input type="text" name="fname" id="location" required placeholder="Insira Localidade">
+                    <button id="ClimaButton">Ver Clima</button>
+                    <h5 class="obj" style="color:ButtonShadow">Temperatura</h5>
+                    <p id="temp"></p>
+                    <h5 class="obj" style="color:ButtonShadow">Humidade</h5>
+                    <p id="humidade"></p>
+
+                </div>
+                <script>
+            $(document).ready(function () {
+                $("#ClimaButton").click(function () {
+                    var url = '@Url.Action("GetWeather", "Weather", new { localidade = UrlParameter.Optional })';
+                    var locationData = $('#location').val();
+                    console.log(locationData);
+                    if (locationData != null && locationData != "") {
+                        $.get(url + locationData, function (response) {
+                            $("#name").text(response.name);
+                            $("#temp").text(response.main.temp);
+                            $("#humidade").text(response.main.humidity);
+                        });
+                    } else {
+                        alert('Insira a Localidade');
+                    }
+                })
+            });
+                </script>
+            </div>

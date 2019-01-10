@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Problemas Reportados</h2>
 
 <table class="table">
     <tr>
@@ -20,23 +20,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.localizacao)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Download", "Download", new { id = item.id }) |
-            @Html.ActionLink("Editar Estado do Problema", "Edit", new { id = item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.localizacao)
+            </td>
+
+            <td>
+                @Html.ActionLink("Download", "Download", new { id = item.id }) |
+                @Html.ActionLink("Editar Estado do Problema", "Edit", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.ActionLink("Voltar", "Index","Home")

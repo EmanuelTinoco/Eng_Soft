@@ -4,13 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Criar Informaçao </h2>
 @if (Request.Cookies["user"]["membro"] == "True")
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Criar Informação", "Create")
     </p>
 }
+
+<h2>Lista de Informações existentes</h2>
 
 <table class="table">
     <tr>
@@ -46,6 +48,9 @@
 
             </td>
         </tr>
-}
-      
+    }
+
 </table>
+<p>
+    @Html.ActionLink("Voltar", "Index","Home")
+</p>

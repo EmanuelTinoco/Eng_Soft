@@ -95,6 +95,7 @@ namespace Eng_Soft.Controllers
         // GET: Utilizadors/Edit/5
         public ActionResult Edit(int? id)
         {
+            id = int.Parse(Request.Cookies["user"]["id"]);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -119,7 +120,7 @@ namespace Eng_Soft.Controllers
             {
                 db.Entry(utilizador).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home", null);
             }
             ViewBag.cod_postal = new SelectList(db.Freguesia, "cod_postal", "nome", utilizador.cod_postal);
             return View(utilizador);

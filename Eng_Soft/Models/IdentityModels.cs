@@ -29,5 +29,7 @@ namespace Eng_Soft.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Eng_Soft.Models.Registo> Registoes { get; set; }
     }
 }

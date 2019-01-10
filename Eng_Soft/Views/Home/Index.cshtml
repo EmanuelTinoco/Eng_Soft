@@ -35,7 +35,7 @@
             @Html.ActionLink("Ver Pedidos de Declaração", "Index", "Pedido_Declaracao")
         </li>
         <li>
-            @Html.ActionLink("Documentos dos Residentes", "ShowDocs", "Declaracaos")
+            @Html.ActionLink("Informações úteis", "Index", "Notifcacaos")
         </li>
         <br />
     }
@@ -53,6 +53,7 @@
             @Html.ActionLink("Consultar Meus Documentos", "Index", "Declaracaos")
         </li>
 
+
         <br />
     }
 
@@ -61,18 +62,16 @@
         @Html.ActionLink("Reportar Problema", "Create", "Reportar_Problema", new { id = int.Parse(Request.Cookies["user"]["id"]) }, null)
     </li>
     <li>
-
+        @Html.ActionLink("Consultar Informações úteis", "Index", "Notifcacaos")
     </li>
-
+    <li>
+        @Html.ActionLink("Enviar Sugestão", "Create", "Sugestaos")
+    </li>
     <li>
         @Html.ActionLink("Editar Os meus dados", "EditMyProfile", "Utilizadors")
     </li>
     <li>
-        @Html.ActionLink("Ver minhas declarações", "Index", "Declaracaos")
-    </li>
-
-    <li>
-        @Html.ActionLink("Pedidos de Esclarecimento", "Create", "Pedido_Esclarecimento")
+        @Html.ActionLink("Registos de Login", "Index", "Registo")
     </li>
 
 
@@ -109,8 +108,6 @@
             @Html.ActionLink("Declarações", "Create", "Declaracaos")
         </li>
 
-        <li>
-            @Html.ActionLink("Registos de Login", "Index", "Registo")
-        </li>*@
+    *@
 
 </div>  

@@ -14,23 +14,12 @@
     <div class="form-horizontal">
         <h4>Notifcacao</h4>
         <hr />
+        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.cod_postal, "cod_postal", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("cod_postal", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.cod_postal, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.data, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.data, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+        @Html.HiddenFor(model => model.data)
+        @Html.HiddenFor(model=>model.id)
+        @Html.HiddenFor(model => model.cod_postal)
+        
         <div class="form-group">
             @Html.LabelFor(model => model.descricao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

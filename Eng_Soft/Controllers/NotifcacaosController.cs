@@ -39,8 +39,7 @@ namespace Eng_Soft.Controllers
         // GET: Notifcacaos/Create
         public ActionResult Create()
         {
-            ViewBag.cod_postal = new SelectList(db.Freguesia, "cod_postal", "nome");
-            return View();
+            return View(new Notifcacao());
         }
 
         // POST: Notifcacaos/Create
@@ -50,6 +49,8 @@ namespace Eng_Soft.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,cod_postal,data,descricao")] Notifcacao notifcacao)
         {
+            notifcacao.data = DateTime.Now;
+            notifcacao.cod_postal = "4720";
             if (ModelState.IsValid)
             {
                 db.Notifcacao.Add(notifcacao);

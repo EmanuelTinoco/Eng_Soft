@@ -5,10 +5,13 @@
 }
 
 <h2>Index</h2>
+@if (Request.Cookies["user"]["membro"] == "True")
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -23,23 +26,26 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Freguesia.nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freguesia.nome)
+            </td>
+            <td>
+                @if (Request.Cookies["user"]["membro"] == "True")
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                }
 
+            </td>
+        </tr>
+}
+      
 </table>

@@ -39,8 +39,9 @@ namespace Eng_Soft.Controllers
         // GET: Sugestaos/Create
         public ActionResult Create()
         {
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
-            return View();
+            Sugestao s = new Sugestao();
+            s.id_user = int.Parse(Request.Cookies["user"]["id"]);
+            return View(s);
         }
 
         // POST: Sugestaos/Create
@@ -50,14 +51,15 @@ namespace Eng_Soft.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id_user,data,descricao,id")] Sugestao sugestao)
         {
+            sugestao.data = DateTime.Now;
+            sugestao.id_user = int.Parse(Request.Cookies["user"]["id"]);
             if (ModelState.IsValid)
             {
                 db.Sugestao.Add(sugestao);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home", null);
             }
 
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", sugestao.id_user);
             return View(sugestao);
         }
 

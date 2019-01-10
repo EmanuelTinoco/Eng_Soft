@@ -39,8 +39,9 @@ namespace Eng_Soft.Controllers
         // GET: Pedido_Declaracao/Create
         public ActionResult Create()
         {
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal");
-            return View();
+            Pedido_Declaracao p = new Pedido_Declaracao();
+            
+            return View(p);
         }
 
         // POST: Pedido_Declaracao/Create
@@ -52,12 +53,13 @@ namespace Eng_Soft.Controllers
         {
             if (ModelState.IsValid)
             {
+                pedido_Declaracao.id_user = int.Parse(Request.Cookies["user"]["id"]);
+                pedido_Declaracao.data = DateTime.Now;
                 db.Pedido_Declaracao.Add(pedido_Declaracao);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home", null);
             }
 
-            ViewBag.id_user = new SelectList(db.Utilizador, "id", "cod_postal", pedido_Declaracao.id_user);
             return View(pedido_Declaracao);
         }
 

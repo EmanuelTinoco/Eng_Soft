@@ -36,7 +36,5 @@ namespace BD
         public virtual DbSet<Sugestao> Sugestao { get; set; }
         public virtual DbSet<Utilizador> Utilizador { get; set; }
         public virtual DbSet<Utilizador_Perfil> Utilizador_Perfil { get; set; }
-
-        //public System.Data.Entity.DbSet<EG.Models.Permicoes> Permicoes { get; set; }
     }
 }

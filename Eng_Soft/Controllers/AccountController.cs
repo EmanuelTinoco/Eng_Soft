@@ -200,7 +200,7 @@ namespace Eng_Soft.Controllers
                         cookie["admin"] = isAdmin(v.id).ToString();
                         cookie["residente"] = isResidente(v.id).ToString();
                         cookie["membro"] = isMembro(v.id).ToString();
-                        cookie["id_registo"] = GetIdRegist(v.id).ToString();
+                        //cookie["id_registo"] = GetIdRegist(v.id).ToString();
                         Response.Cookies.Add(cookie);
 
 
@@ -648,7 +648,7 @@ namespace Eng_Soft.Controllers
             cookie["admin"] = isAdmin(user.id).ToString();
             cookie["residente"] = isResidente(user.id).ToString();
             cookie["membro"] = isMembro(user.id).ToString();
-            cookie["id_registo"] = GetIdRegist(user.id).ToString();
+           // cookie["id_registo"] = GetIdRegist(user.id).ToString();
             Response.Cookies.Add(cookie);
             return this.RedirectToLocal(returnUrl);
 
@@ -713,6 +713,8 @@ namespace Eng_Soft.Controllers
             // Info.    
             return this.RedirectToAction("Login", "Account");
         }
+
+
 
         //
         // GET: /Account/ExternalLoginFailure

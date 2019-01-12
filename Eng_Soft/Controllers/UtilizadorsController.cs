@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using BD;
@@ -66,11 +67,19 @@ namespace Eng_Soft.Controllers
             }
             return View(utilizador);
         }
-
         // GET: Utilizadors/Create
         public ActionResult Create()
         {
+            ViewBag.id = new SelectList(db.Agendamento, "id", "objetivo");
+            ViewBag.id = new SelectList(db.Agendamento, "id", "objetivo");
+            ViewBag.id = new SelectList(db.Declaracao, "id", "descricao");
             ViewBag.cod_postal = new SelectList(db.Freguesia, "cod_postal", "nome");
+            ViewBag.id = new SelectList(db.Pedido_Declaracao, "id", "descricacao");
+            ViewBag.id = new SelectList(db.Pedido_Esclarecimento, "id", "descricao");
+            ViewBag.id = new SelectList(db.Pedido_Esclarecimento, "id", "descricao");
+            ViewBag.id = new SelectList(db.Reportar_Problema, "id", "descricao");
+            ViewBag.id = new SelectList(db.Reportar_Problema, "id", "descricao");
+            ViewBag.id = new SelectList(db.Sugestao, "id_user", "descricao");
             return View();
         }
 
@@ -81,17 +90,35 @@ namespace Eng_Soft.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,cod_postal,nome,cc,n_eleitor,email,username,password,contacto")] Utilizador utilizador)
         {
+            int perfil_id = 3;
             if (ModelState.IsValid)
             {
                 db.Utilizador.Add(utilizador);
+
+                if (utilizador.cod_postal.Equals("4720"))
+                {
+                    perfil_id = 2;
+                }
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
+                Utilizador_PerfilController.adiciona(utilizador.id, perfil_id);
+                return RedirectToAction("Login", "Account", new { area = "" });
+                //return RedirectToAction("Index");
             }
 
+            ViewBag.id = new SelectList(db.Agendamento, "id", "objetivo", utilizador.id);
+            ViewBag.id = new SelectList(db.Agendamento, "id", "objetivo", utilizador.id);
+            ViewBag.id = new SelectList(db.Declaracao, "id", "descricao", utilizador.id);
             ViewBag.cod_postal = new SelectList(db.Freguesia, "cod_postal", "nome", utilizador.cod_postal);
+            ViewBag.id = new SelectList(db.Pedido_Declaracao, "id", "descricacao", utilizador.id);
+            ViewBag.id = new SelectList(db.Pedido_Esclarecimento, "id", "descricao", utilizador.id);
+            ViewBag.id = new SelectList(db.Pedido_Esclarecimento, "id", "descricao", utilizador.id);
+            ViewBag.id = new SelectList(db.Reportar_Problema, "id", "descricao", utilizador.id);
+            ViewBag.id = new SelectList(db.Reportar_Problema, "id", "descricao", utilizador.id);
+            ViewBag.id = new SelectList(db.Sugestao, "id_user", "descricao", utilizador.id);
             return View(utilizador);
         }
-
         // GET: Utilizadors/Edit/5
         public ActionResult Edit(int? id)
         {

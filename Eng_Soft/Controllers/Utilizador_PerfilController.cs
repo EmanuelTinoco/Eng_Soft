@@ -12,7 +12,7 @@ namespace Eng_Soft.Controllers
 {
     public class Utilizador_PerfilController : Controller
     {
-        private estp2Entities db = new estp2Entities();
+        private static estp2Entities db = new estp2Entities();
 
         // GET: Utilizador_Perfil
         public ActionResult Index()
@@ -20,7 +20,17 @@ namespace Eng_Soft.Controllers
             var utilizador_Perfil = db.Utilizador_Perfil.Include(u => u.Perfil).Include(u => u.Utilizador);
             return View(utilizador_Perfil.ToList());
         }
-
+        public static bool adiciona(int user_id, int perfil_id)
+        {
+            Utilizador_Perfil u = new Utilizador_Perfil();
+            u.user_id = user_id;
+            u.perfil_id = perfil_id;
+            u.data = DateTime.Now;
+            u.ativo = 1;
+            db.Utilizador_Perfil.Add(u);
+            db.SaveChanges();
+            return true;
+        }
         // GET: Utilizador_Perfil/Details/5
         public ActionResult Details(int? id)
         {
@@ -131,6 +141,90 @@ namespace Eng_Soft.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public Utilizador_Perfil PermissionExists(int user_id, int perfil_id)
+        {
+            Utilizador_Perfil user = db.Utilizador_Perfil.Find(user_id, perfil_id);
+
+            return user;
+        }
+
+        private bool isAdmin(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 1
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isResidente(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 2
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool isMembro(int id)
+        {
+            var perm = (from user in db.Utilizador
+                        join user_p in db.Utilizador_Perfil on user.id equals user_p.user_id
+                        where user.id == id && user_p.ativo == 1 && user_p.perfil_id == 4
+                        select new
+                        {
+                            PERM = user_p.perfil_id
+                        }).FirstOrDefault();
+            if (perm == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        public bool changePermission(int u_id, int p_id, bool status)
+        {
+            Utilizador_Perfil user = PermissionExists(u_id, p_id);
+            int s = status ? 1 : 0;
+            //Se existir faço update do status
+            if (user != null)
+            {
+                user = (from x in db.Utilizador_Perfil
+                        where x.user_id == u_id && x.perfil_id == p_id
+                        select x).First();
+                user.ativo = s;
+                db.SaveChanges();
+            }
+            //se não existir é adicionada uma nova entrada a tabela
+            else
+            {
+                using (var context = new estp2Entities())
+                {
+                    context.Utilizador_Perfil.Add(new Utilizador_Perfil { user_id = u_id, perfil_id = p_id, ativo = s, data = DateTime.Now });
+                    //var users = db.Set<Utilizador_Perfil>();
+                    //users.Add(new Utilizador_Perfil { perfil_id = p_id, user_id = u_id, ativo = s, data = DateTime.Now });
+                    context.SaveChanges();
+                    //db.SaveChanges();
+                }
+            }
+            return true;
         }
     }
 }

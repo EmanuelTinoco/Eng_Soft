@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eng_Soft", "Eng_Soft\Eng_Soft.csproj", "{FCA8D4CD-3A58-49DD-9299-486A5F864973}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_ISI", "API_ISI\API_ISI.csproj", "{C893E4B5-6FE5-4537-A3E1-090C125C02F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FCA8D4CD-3A58-49DD-9299-486A5F864973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCA8D4CD-3A58-49DD-9299-486A5F864973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCA8D4CD-3A58-49DD-9299-486A5F864973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C893E4B5-6FE5-4537-A3E1-090C125C02F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C893E4B5-6FE5-4537-A3E1-090C125C02F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C893E4B5-6FE5-4537-A3E1-090C125C02F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C893E4B5-6FE5-4537-A3E1-090C125C02F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

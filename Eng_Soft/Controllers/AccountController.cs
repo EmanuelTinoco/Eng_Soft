@@ -327,7 +327,7 @@ namespace Eng_Soft.Controllers
             int regist = -1;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44376/api/");
+                client.BaseAddress = new Uri("https://isiapi20190113111536.azurewebsites.net/api/");
                 var data = new
                 {
                     Userid = id,
@@ -721,12 +721,18 @@ namespace Eng_Soft.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:44376/api/");
+                client.BaseAddress = new Uri("https://isiapi20190113111536.azurewebsites.net/api/");
                 //HTTP GET
-                var responseTask = client.PutAsync("registo/" + id.ToString());
-                responseTask.Wait();
+                //var responseTask = client.PutAsync("registo/" + id.ToString());
+                var data = new
+                {
+                    date = DateTime.Now
+                };
+                string path = "registo/" + id.ToString();
+                var response = client.PutAsync(path, null);
+                response.Wait();
 
-                var result = responseTask.Result;
+                var result = response.Result;
                 if (result.IsSuccessStatusCode)
                 {
                     b = true;

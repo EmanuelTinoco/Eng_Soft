@@ -49,8 +49,9 @@ namespace ISI_API.Controllers
             {
                 emp = new Registo();
                 emp.Id = Convert.ToInt32(reader.GetValue(0));
-                emp.Data_Hora_Login = DateTime.Parse(reader.GetValue(1).ToString());
-                emp.Data_Hora_Logoff = DateTime.Parse(reader.GetValue(2).ToString());
+                emp.Userid = Convert.ToInt32(reader.GetValue(1));
+                emp.Data_Hora_Login = DateTime.Parse(reader.GetValue(2).ToString());
+                emp.Data_Hora_Logoff = DateTime.Parse(reader.GetValue(3).ToString());
                 Lista.Add(emp);
             }
             con.Close();
@@ -92,7 +93,7 @@ namespace ISI_API.Controllers
             com.CommandType = CommandType.StoredProcedure;
 
             com.Parameters.AddWithValue("@id", id);
-            com.Parameters.AddWithValue("@Data_Hora_Logoff", date);
+            com.Parameters.AddWithValue("@date_logoff", date);
 
             con.Open();
             com.ExecuteNonQuery();

@@ -17,10 +17,10 @@ namespace Eng_Soft.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:55238/api/");
+                client.BaseAddress = new Uri("https://isiapi20190113111536.azurewebsites.net/api/registo/");
                 //HTTP GET
                 string id = Request.Cookies["user"]["id"];
-                var responseTask = client.GetAsync("registos/" + id);
+                var responseTask = client.GetAsync(id.ToString());
                 responseTask.Wait();
 
                 var result = responseTask.Result;
@@ -47,10 +47,10 @@ namespace Eng_Soft.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:55238/api/");
+                client.BaseAddress = new Uri("https://isiapi20190113111536.azurewebsites.net/api/registo/");
 
                 //HTTP DELETE
-                var deleteTask = client.DeleteAsync("registos/" + id.ToString());
+                var deleteTask = client.DeleteAsync(id.ToString());
                 deleteTask.Wait();
 
                 var result = deleteTask.Result;

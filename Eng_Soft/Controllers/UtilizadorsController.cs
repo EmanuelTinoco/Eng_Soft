@@ -129,7 +129,7 @@ namespace Eng_Soft.Controllers
             int regist = -1;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44376/api/");
+                client.BaseAddress = new Uri("https://isiapi20190113111536.azurewebsites.net/api/");
 
                 var data = new
                 {
@@ -140,11 +140,7 @@ namespace Eng_Soft.Controllers
                 var response = client.PostAsJsonAsync("user", data);
                 response.Wait();
                 var result = response.Result;
-                //char[] delimiterChars = { '"', ':', '{', '}', ',' };
-                //var contentString = response.Result.Content.ReadAsStringAsync().Result;
-
-                ////adicionar cookie com o valor do id_registo
-                //regist = int.Parse(contentString.Split(delimiterChars)[4]);
+                
             }
             return regist;
         }

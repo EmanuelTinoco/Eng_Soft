@@ -368,6 +368,7 @@
     <Content Include="Views\Account\RecuperarPassWordConfirmacao.cshtml" />
     <Content Include="Views\Utilizadors\EditMyProfile.cshtml" />
     <Content Include="Views\Registo\Index.cshtml" />
+    <Content Include="Views\Registo\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

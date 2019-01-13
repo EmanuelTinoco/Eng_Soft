@@ -27,7 +27,7 @@ namespace ISI_API.Controllers
         
         // GET api/registo/5
         [HttpGet("{id}")]
-        public ActionResult<Registo> Get(int id)
+        public ActionResult<List<Registo>> Get(int id)
         {
             SqlDataReader reader = null;
 
@@ -53,7 +53,7 @@ namespace ISI_API.Controllers
                 Lista.Add(emp);
             }
             con.Close();
-            return emp;
+            return Lista;
         }
 
         //POST
@@ -66,8 +66,8 @@ namespace ISI_API.Controllers
             com = new SqlCommand("AddRegisto", con);
             com.CommandType = CommandType.StoredProcedure;
 
-            com.Parameters.AddWithValue("@id", r.Id);
-            com.Parameters.AddWithValue("@userid", r.Userid);
+            //com.Parameters.AddWithValue("@id", r.Id);
+            com.Parameters.AddWithValue("@Userid", r.Userid);
             com.Parameters.AddWithValue("@Data_Hora_Login", r.Data_Hora_Login);
             com.Parameters.AddWithValue("@Data_Hora_Logoff", r.Data_Hora_Logoff);
 
@@ -111,5 +111,6 @@ namespace ISI_API.Controllers
             con.Close();
         }
 
+       
     }
 }

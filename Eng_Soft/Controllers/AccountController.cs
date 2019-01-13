@@ -200,7 +200,7 @@ namespace Eng_Soft.Controllers
                         cookie["admin"] = isAdmin(v.id).ToString();
                         cookie["residente"] = isResidente(v.id).ToString();
                         cookie["membro"] = isMembro(v.id).ToString();
-                        //cookie["id_registo"] = GetIdRegist(v.id).ToString();
+                        cookie["id_registo"] = GetIdRegist(v.id).ToString();
                         Response.Cookies.Add(cookie);
 
 
@@ -323,10 +323,11 @@ namespace Eng_Soft.Controllers
 
         private int GetIdRegist(int id)
         {
+            
             int regist = -1;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:55238/api/");
+                client.BaseAddress = new Uri("https://localhost:44376/api/");
                 var data = new
                 {
                     Userid = id,
@@ -334,7 +335,7 @@ namespace Eng_Soft.Controllers
                     Data_Hora_Logoff = DateTime.Now
                 };
 
-                var response = client.PostAsJsonAsync("registos", data);
+                var response = client.PostAsJsonAsync("registo", data);
                 response.Wait();
                 char[] delimiterChars = { '"', ':', '{', '}', ',' };
                 var contentString = response.Result.Content.ReadAsStringAsync().Result;

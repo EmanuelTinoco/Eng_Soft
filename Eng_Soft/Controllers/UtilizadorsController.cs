@@ -14,7 +14,7 @@ namespace Eng_Soft.Controllers
     public class UtilizadorsController : Controller
     {
         private estp2Entities db = new estp2Entities();
-        
+
 
         public ActionResult UsersView()
         {
@@ -101,11 +101,13 @@ namespace Eng_Soft.Controllers
                 }
 
                 db.SaveChanges();
-                
+                addRegistoAtividade(utilizador.id, utilizador.username, utilizador.email);
+
                 Utilizador_PerfilController.adiciona(utilizador.id, perfil_id);
                 return RedirectToAction("Login", "Account", new { area = "" });
                 //return RedirectToAction("Index");
             }
+
 
             ViewBag.id = new SelectList(db.Agendamento, "id", "objetivo", utilizador.id);
             ViewBag.id = new SelectList(db.Agendamento, "id", "objetivo", utilizador.id);
@@ -118,6 +120,33 @@ namespace Eng_Soft.Controllers
             ViewBag.id = new SelectList(db.Reportar_Problema, "id", "descricao", utilizador.id);
             ViewBag.id = new SelectList(db.Sugestao, "id_user", "descricao", utilizador.id);
             return View(utilizador);
+        }
+
+        //Adiciona user registoAtividade
+        private int addRegistoAtividade(int id, string username, string email)
+        {
+
+            int regist = -1;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44376/api/");
+
+                var data = new
+                {
+                    id = id,
+                    email = email,
+                    username = username
+                };
+                var response = client.PostAsJsonAsync("user", data);
+                response.Wait();
+                var result = response.Result;
+                //char[] delimiterChars = { '"', ':', '{', '}', ',' };
+                //var contentString = response.Result.Content.ReadAsStringAsync().Result;
+
+                ////adicionar cookie com o valor do id_registo
+                //regist = int.Parse(contentString.Split(delimiterChars)[4]);
+            }
+            return regist;
         }
         // GET: Utilizadors/Edit/5
         public ActionResult Edit(int? id)
@@ -147,7 +176,7 @@ namespace Eng_Soft.Controllers
             {
                 db.Entry(utilizador).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index","Home", null);
+                return RedirectToAction("Index", "Home", null);
             }
             ViewBag.cod_postal = new SelectList(db.Freguesia, "cod_postal", "nome", utilizador.cod_postal);
             return View(utilizador);

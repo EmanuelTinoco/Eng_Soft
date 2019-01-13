@@ -337,14 +337,14 @@ namespace Eng_Soft.Controllers
 
                 var response = client.PostAsJsonAsync("registo", data);
                 response.Wait();
-                char[] delimiterChars = { '"', ':', '{', '}', ',' };
                 var contentString = response.Result.Content.ReadAsStringAsync().Result;
-
-                //adicionar cookie com o valor do id_registo
-                regist = int.Parse(contentString.Split(delimiterChars)[4]);
+                regist = int.Parse(contentString);
             }
             return regist;
         }
+
+        
+
 
 
         //
@@ -702,8 +702,8 @@ namespace Eng_Soft.Controllers
                 var authenticationManager = ctx.Authentication;
                 // Sign Out.    
                 authenticationManager.SignOut();
-                //string gasgjdagj = Request.Cookies["user"].Value;
-                Response.Cookies["cookie"].Expires = DateTime.Now.AddDays(-1);
+                Edit_Regist(int.Parse(Request.Cookies["user"]["id_registo"]));
+                Request.Cookies["cookie"].Expires = DateTime.Now.AddDays(-1);
 
             }
             catch (Exception ex)
@@ -715,6 +715,26 @@ namespace Eng_Soft.Controllers
             return this.RedirectToAction("Login", "Account");
         }
 
+        private bool Edit_Regist(int id)
+        {
+            bool b = false;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:44376/api/");
+                //HTTP GET
+                var responseTask = client.PutAsync("registo/" + id.ToString());
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    b = true;
+                }
+            }
+
+            return b;
+        }
 
 
         //

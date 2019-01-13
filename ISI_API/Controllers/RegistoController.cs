@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using ISI_API.Models;
 using Microsoft.AspNetCore.Http;
@@ -58,7 +59,7 @@ namespace ISI_API.Controllers
 
         //POST
         [HttpPost]
-        public void Post([FromBody] Registo r)
+        public string Post([FromBody] Registo r)
         {
             string constr = configuration.GetValue<string>("MySettings:DbConnection");
             con = new SqlConnection(constr);
@@ -70,16 +71,20 @@ namespace ISI_API.Controllers
             com.Parameters.AddWithValue("@Userid", r.Userid);
             com.Parameters.AddWithValue("@Data_Hora_Login", r.Data_Hora_Login);
             com.Parameters.AddWithValue("@Data_Hora_Logoff", r.Data_Hora_Logoff);
-
+            //customer.CustomerID = (int)cmd.ExecuteScalar();
             con.Open();
+            string id = com.ExecuteScalar().ToString();
             com.ExecuteNonQuery();
             con.Close();
+            return id;
+            
         }
 
         // PUT api/registo/15
         [HttpPut("{id}")]
-        public void Put(int id, DateTime date)
+        public void Put(int id)
         {
+            DateTime date = DateTime.Now;
             string constr = configuration.GetValue<string>("MySettings:DbConnection");
             con = new SqlConnection(constr);
 
